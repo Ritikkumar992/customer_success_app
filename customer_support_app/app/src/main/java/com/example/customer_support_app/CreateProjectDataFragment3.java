@@ -9,9 +9,13 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
+import android.widget.TextView;
+import android.widget.Toast;
 
 
 public class CreateProjectDataFragment3 extends Fragment {
+
+    TextView SubmitBtn;
 
     public CreateProjectDataFragment3() {
         // Required empty public constructor
@@ -24,6 +28,15 @@ public class CreateProjectDataFragment3 extends Fragment {
 //        return inflater.inflate(R.layout.fragment_create_project_data3, container, false);
 
         View rootView = inflater.inflate(R.layout.fragment_create_project_data3, container, false);
+
+        // SUBMIT BUTTON CLICKED:
+        SubmitBtn = rootView.findViewById(R.id.submitBtn);
+        SubmitBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(requireContext(), "New Project Added", Toast.LENGTH_SHORT).show();
+            }
+        });
 
         Spinner spinner = rootView.findViewById(R.id.spinnerId_project_manager);
 
