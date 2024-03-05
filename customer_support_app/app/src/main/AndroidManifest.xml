@@ -13,6 +13,9 @@
         android:theme="@style/Theme.Customer_support_app.NoActionBar"
         tools:targetApi="31">
         <activity
+            android:name=".createProject.createProjectActivity"
+            android:exported="false" />
+        <activity
             android:name=".CreateProjectData.CreateProjectActivity"
             android:exported="false" />
         <activity

@@ -1,5 +1,6 @@
 package com.example.customer_support_app.ui.project;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -16,6 +17,7 @@ import androidx.viewpager2.widget.ViewPager2;
 
 import com.example.customer_support_app.ViewPagerMessengerAdapter;
 import com.example.customer_support_app.R;
+import com.example.customer_support_app.createProject.createProjectActivity;
 import com.example.customer_support_app.databinding.FragmentProjectsBinding;
 import com.google.android.material.bottomsheet.BottomSheetDialog;
 import com.google.android.material.tabs.TabLayout;
@@ -50,7 +52,10 @@ public class ProjectsFragment extends Fragment {
         createProjectBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                createFirstDialog.show();
+                Intent iCreateProject = new Intent(requireContext(), createProjectActivity.class);
+                startActivity(iCreateProject);
+//                finish();
+//                createFirstDialog.show();
             }
         });
 
