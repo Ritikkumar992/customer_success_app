@@ -4,10 +4,14 @@ import static java.security.AccessController.getContext;
 
 import android.content.ClipData;
 import android.graphics.Color;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.Menu;
+import android.view.WindowInsets;
+import android.view.WindowInsetsController;
+import android.view.WindowManager;
 import android.widget.TableRow;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -46,15 +50,26 @@ public class HomeActivity extends AppCompatActivity {
 
         binding = ActivityHomeBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-
         setSupportActionBar(binding.appBarHome.toolbar);
-//        binding.appBarHome.fab.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-//                        .setAction("Action", null).show();
-//            }
-//        });
+
+        // remove title bar
+        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.R){
+            WindowInsetsController windowInsetsController = getWindow().getInsetsController();
+            if(windowInsetsController != null){
+                windowInsetsController.hide(WindowInsets.Type.statusBars());
+            }
+        }
+        else{
+            getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        }
+
+        binding.appBarHome.fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Snackbar.make(view, "Floating Action Button Cliecked", Snackbar.LENGTH_LONG)
+                        .setAction("Action", null).show();
+            }
+        });
 
         DrawerLayout drawer = binding.drawerLayout;
         NavigationView navigationView = binding.navView;
@@ -70,27 +85,7 @@ public class HomeActivity extends AppCompatActivity {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_home);
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
-
-//        // Set up navigation item selection listener
-//        navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
-//            @Override
-//            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-//                int id = item.getItemId();
-//                if (id == R.id.nav_settings) {
-//                    loadFragment(new SettingsFragment());
-//                }
-//                return true;
-//            }
-//        });
-
     }
-//    private void loadFragment(Fragment fragment) {
-//        FragmentManager fm = getSupportFragmentManager();
-//        FragmentTransaction ft =fm.beginTransaction();
-//
-//        ft.add(R.id.nav_host_fragment_content_home,fragment);
-//        ft.commit();
-//    }
 
 
     @Override

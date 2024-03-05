@@ -8,6 +8,8 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
 import android.view.Window;
+import android.view.WindowInsets;
+import android.view.WindowInsetsController;
 import android.view.WindowManager;
 
 import com.airbnb.lottie.LottieAnimationView;
@@ -17,19 +19,18 @@ public class SplashActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-        // the status bar.
-        if (Build.VERSION.SDK_INT < 16) {
-            getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
-                    WindowManager.LayoutParams.FLAG_FULLSCREEN);
-        }
-
-//        // remove action bar and tittle bar:
-//        requestWindowFeature(Window.FEATURE_NO_TITLE);
-//        this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
-//        getSupportActionBar().hide(); // hide the action bar.
-
         setContentView(R.layout.activity_splash);
+
+        // remove title bar
+        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.R){
+            WindowInsetsController windowInsetsController = getWindow().getInsetsController();
+            if(windowInsetsController != null){
+                windowInsetsController.hide(WindowInsets.Type.statusBars());
+            }
+        }
+        else{
+            getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        }
 
 
 

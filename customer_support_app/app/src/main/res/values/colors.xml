@@ -11,5 +11,7 @@
     <color name="light">#DF7350</color>
     <color name="login_button_color">#FF5722</color>
     <color name="logout_button_color">#2196F3</color>
-
+    <color name="ocean_blue">#002542</color>
+    <color name="light_ocean_blue">#015597</color>
+    <color name="mycolor">#002F53</color>
 </resources>

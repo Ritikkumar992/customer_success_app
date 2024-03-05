@@ -9,8 +9,12 @@ import androidx.navigation.ui.NavigationUI;
 import androidx.viewpager2.widget.ViewPager2;
 
 import android.annotation.SuppressLint;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.WindowInsets;
+import android.view.WindowInsetsController;
+import android.view.WindowManager;
 import android.widget.Toast;
 
 import com.example.customer_support_app.R;
@@ -30,11 +34,22 @@ public class ProjectData extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_project_data);
 
+        // remove title bar
+        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.R){
+            WindowInsetsController windowInsetsController = getWindow().getInsetsController();
+            if(windowInsetsController != null){
+                windowInsetsController.hide(WindowInsets.Type.statusBars());
+            }
+        }
+        else{
+            getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        }
 
         //------------------------------------ Pager-------------------------------//
         TabLayout tabLayout = findViewById(R.id.project_tabLayout);
         ViewPager2 viewPager2 = findViewById(R.id.project_data_viewPager);
 
+        // accessing ViewProjectDataAdapter.java class to attach adapter to fetch data.
         ViewProjectDataAdapter adapterClass = new ViewProjectDataAdapter(getSupportFragmentManager(), getLifecycle());
         viewPager2.setAdapter(adapterClass);
 

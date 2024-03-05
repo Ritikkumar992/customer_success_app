@@ -6,14 +6,12 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".HomeActivity">
-
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:theme="@style/Theme.Customer_support_app.AppBarOverlay"
         android:backgroundTint="@color/light_black"
         >
-
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
@@ -21,11 +19,10 @@
             android:background="@drawable/toolbar_background"
             app:popupTheme="@style/Theme.Customer_support_app.PopupOverlay"
             >
-
             <androidx.appcompat.widget.SearchView
                 android:id="@+id/searchView"
                 android:layout_width="300dp"
-                android:layout_height="wrap_content"
+                android:layout_height="35dp"
                 android:layout_marginStart="10dp"
                 android:background="@drawable/search_view_bg"
                 android:queryHint="Search here"
@@ -33,22 +30,22 @@
                 app:searchIcon="@drawable/ic_search"
                 app:closeIcon="@drawable/ic_close"
                 app:defaultQueryHint="Start typing to search"
-            />
-
+                />
         </androidx.appcompat.widget.Toolbar>
-
     </com.google.android.material.appbar.AppBarLayout>
 
-    <include layout="@layout/content_home" />
+    <include
+        android:id="@+id/layout"
+        layout="@layout/content_home" />
 
-<!--    <com.google.android.material.floatingactionbutton.FloatingActionButton-->
-<!--        android:id="@+id/fab"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:layout_gravity="bottom|center"-->
-<!--        android:layout_marginEnd="@dimen/fab_margin"-->
-<!--        android:layout_marginBottom="16dp"-->
-<!--        app:srcCompat="@android:drawable/ic_input_add"-->
-<!--        android:contentDescription="Add Project" />-->
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|center"
+        android:layout_marginEnd="@dimen/fab_margin"
+        android:layout_marginBottom="16dp"
+        app:srcCompat="@android:drawable/ic_input_add"
+        android:contentDescription="Add Project" />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

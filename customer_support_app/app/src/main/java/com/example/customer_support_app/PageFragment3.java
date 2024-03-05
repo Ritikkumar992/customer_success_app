@@ -18,7 +18,7 @@ import java.util.ArrayList;
 
 public class PageFragment3 extends Fragment {
 
-    ArrayList<TextView> rows = new ArrayList<>();
+    ArrayList<TextView> rows = new ArrayList<>();  // Array list to stor the textView;
 
     public PageFragment3() {
         // Required empty public constructor
@@ -35,6 +35,8 @@ public class PageFragment3 extends Fragment {
             TextView textView = root.findViewById(textViewId);
             rows.add(textView);
         }
+        // traversing through each element of rows and applying on click listener.
+
         for(int i = 0;i<rows.size();i++){
             if(rows.get(i) != null){
                 rows.get(i).setOnClickListener(new View.OnClickListener() {
