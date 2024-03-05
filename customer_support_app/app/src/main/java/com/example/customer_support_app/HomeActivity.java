@@ -1,5 +1,6 @@
 package com.example.customer_support_app;
 
+import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
@@ -7,6 +8,8 @@ import android.view.Menu;
 import android.view.WindowInsets;
 import android.view.WindowInsetsController;
 import android.view.WindowManager;
+
+import com.example.customer_support_app.createProject.createProjectActivity;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.navigation.NavigationView;
 import androidx.navigation.NavController;
@@ -21,7 +24,6 @@ public class HomeActivity extends AppCompatActivity {
 
     private AppBarConfiguration mAppBarConfiguration;
     private ActivityHomeBinding binding;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,8 +48,11 @@ public class HomeActivity extends AppCompatActivity {
         binding.appBarHome.fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Floating Action Button Clicked", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+                Intent iAddProject = new Intent(HomeActivity.this, createProjectActivity.class);
+                startActivity(iAddProject);
+//                finish();
+//                Snackbar.make(view, "Floating Action Button Clicked", Snackbar.LENGTH_LONG)
+//                        .setAction("Action", null).show();
             }
         });
 

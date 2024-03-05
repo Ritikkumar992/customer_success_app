@@ -27,7 +27,8 @@ public class ProjectsFragment extends Fragment {
     TextView createProjectBtn;
     private final String[] titles = {"All Projects", "In Progress", "Completed", "Hold"};
     private FragmentProjectsBinding binding;
-    BottomSheetDialog createFirstDialog;
+
+//    BottomSheetDialog createFirstDialog;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -45,8 +46,8 @@ public class ProjectsFragment extends Fragment {
 
         // action performed on clicking on create project button
 
-        createFirstDialog = new BottomSheetDialog(requireContext());
-        createDialog(); // createDialog() method called.
+//        createFirstDialog = new BottomSheetDialog(requireContext());
+//        createDialog(); // createDialog() method called.
 
         createProjectBtn = root.findViewById(R.id.create_project_id);
         createProjectBtn.setOnClickListener(new View.OnClickListener() {
@@ -59,7 +60,7 @@ public class ProjectsFragment extends Fragment {
             }
         });
 
-        createFirstDialog.getWindow().clearFlags(WindowManager.LayoutParams.FLAG_DIM_BEHIND);
+//        createFirstDialog.getWindow().clearFlags(WindowManager.LayoutParams.FLAG_DIM_BEHIND);
 
 
         //------------------------------------ Pager--------------------------------------------//
@@ -80,77 +81,77 @@ public class ProjectsFragment extends Fragment {
     }
 
     // create createDialog() method
-    private void createDialog() {
-        View view = LayoutInflater.from(requireActivity()).inflate(R.layout.bottom_dialog, null, false);
-
-//        ViewGroup.LayoutParams layoutParams = new ViewGroup.LayoutParams(
-//                ViewGroup.LayoutParams.MATCH_PARENT, // Width
-//                ViewGroup.LayoutParams.MATCH_PARENT  // Height
-//        );
-//        view.setLayoutParams(layoutParams);
-
-        TextView submit = view.findViewById(R.id.continueBtn);
-//        EditText name = view.findViewById(R.id.name);
-
-        submit.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                createFirstDialog.dismiss();
-                createSecondDialog();
-            }
-        });
-        createFirstDialog = new BottomSheetDialog(requireContext());
-        createFirstDialog.setContentView(view);
-    }
-
-    private void createSecondDialog() {
-        View secondView = getLayoutInflater().inflate(R.layout.second_bottom_dialog, null, false);
-
-
-        BottomSheetDialog secondBottomDialog = new BottomSheetDialog(requireContext());
-        secondBottomDialog.setContentView(secondView);
-        secondBottomDialog.show();
-
-        TextView inviteBtn = secondView.findViewById(R.id.inviteBtn);
-        inviteBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                createThirdDialog(); // Call method to create and show the third dialog
-                secondBottomDialog.dismiss(); // Dismiss the second dialog
-            }
-        });
-    }
-
-    private void createThirdDialog()
-    {
-        View thirdView = getLayoutInflater().inflate(R.layout.third_bottom_dialog, null, false);
-
-        BottomSheetDialog thirdBottomDialog = new BottomSheetDialog(requireContext());
-        thirdBottomDialog.setContentView(thirdView);
-        thirdBottomDialog.show();
-
-        TextView submit = thirdView.findViewById(R.id.submitBtn);
-
-        submit.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                thirdBottomDialog.dismiss();
-                Toast.makeText(getContext(), "NEW PROJECT CREATED ", Toast.LENGTH_SHORT).show();
-            }
-        });
-
-        //spinnerId_project_manager
-        Spinner spinner = thirdView.findViewById(R.id.spinnerId_project_manager);
-
-        String[] items = {"Dipa Majumdar", "Ritik kumar", "Anand Patel", "Chintak Patel"};
-
-        ArrayAdapter<String> adapter = new ArrayAdapter<>(requireContext(),
-                android.R.layout.simple_spinner_item, items);
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-
-        // Set the ArrayAdapter to the Spinner
-        spinner.setAdapter(adapter);
-    }
+//    private void createDialog() {
+//        View view = LayoutInflater.from(requireActivity()).inflate(R.layout.bottom_dialog, null, false);
+//
+////        ViewGroup.LayoutParams layoutParams = new ViewGroup.LayoutParams(
+////                ViewGroup.LayoutParams.MATCH_PARENT, // Width
+////                ViewGroup.LayoutParams.MATCH_PARENT  // Height
+////        );
+////        view.setLayoutParams(layoutParams);
+//
+//        TextView submit = view.findViewById(R.id.continueBtn);
+////        EditText name = view.findViewById(R.id.name);
+//
+//        submit.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                createFirstDialog.dismiss();
+//                createSecondDialog();
+//            }
+//        });
+//        createFirstDialog = new BottomSheetDialog(requireContext());
+//        createFirstDialog.setContentView(view);
+//    }
+//
+//    private void createSecondDialog() {
+//        View secondView = getLayoutInflater().inflate(R.layout.second_bottom_dialog, null, false);
+//
+//
+//        BottomSheetDialog secondBottomDialog = new BottomSheetDialog(requireContext());
+//        secondBottomDialog.setContentView(secondView);
+//        secondBottomDialog.show();
+//
+//        TextView inviteBtn = secondView.findViewById(R.id.inviteBtn);
+//        inviteBtn.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                createThirdDialog(); // Call method to create and show the third dialog
+//                secondBottomDialog.dismiss(); // Dismiss the second dialog
+//            }
+//        });
+//    }
+//
+//    private void createThirdDialog()
+//    {
+//        View thirdView = getLayoutInflater().inflate(R.layout.third_bottom_dialog, null, false);
+//
+//        BottomSheetDialog thirdBottomDialog = new BottomSheetDialog(requireContext());
+//        thirdBottomDialog.setContentView(thirdView);
+//        thirdBottomDialog.show();
+//
+//        TextView submit = thirdView.findViewById(R.id.submitBtn);
+//
+//        submit.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                thirdBottomDialog.dismiss();
+//                Toast.makeText(getContext(), "NEW PROJECT CREATED ", Toast.LENGTH_SHORT).show();
+//            }
+//        });
+//
+//        //spinnerId_project_manager
+//        Spinner spinner = thirdView.findViewById(R.id.spinnerId_project_manager);
+//
+//        String[] items = {"Dipa Majumdar", "Ritik kumar", "Anand Patel", "Chintak Patel"};
+//
+//        ArrayAdapter<String> adapter = new ArrayAdapter<>(requireContext(),
+//                android.R.layout.simple_spinner_item, items);
+//        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+//
+//        // Set the ArrayAdapter to the Spinner
+//        spinner.setAdapter(adapter);
+//    }
 
 
     @Override
