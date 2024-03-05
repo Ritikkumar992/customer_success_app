@@ -1,7 +1,6 @@
 package com.example.customer_support_app;
 
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
@@ -9,13 +8,10 @@ import android.view.View;
 import android.view.WindowInsets;
 import android.view.WindowInsetsController;
 import android.view.WindowManager;
-import android.widget.Button;
 import android.widget.TextView;
 
 public class LoginActivity extends AppCompatActivity {
-
     TextView loginBtn;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,14 +28,13 @@ public class LoginActivity extends AppCompatActivity {
             getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         }
 
-        loginBtn = findViewById(R.id.login_btn_id);
-
+        // Navigating from LoginActivity to HomeActivity.
         Intent iHome = new Intent(LoginActivity.this, HomeActivity.class);
-
+        loginBtn = findViewById(R.id.login_btn_id);
         loginBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(iHome);
+                startActivity(iHome); // Navigate to Home Page.
             }
         });
     }

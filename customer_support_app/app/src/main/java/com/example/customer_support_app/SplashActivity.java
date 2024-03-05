@@ -33,13 +33,13 @@ public class SplashActivity extends AppCompatActivity {
         }
 
 
-
         Intent iLogin = new Intent(SplashActivity.this, LoginActivity.class);
 
+        // call back function implementing Runnable() Interface.
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                startActivity(iLogin);
+                startActivity(iLogin); // navigate to LoginActivity.
                 finish();
             }
         }, 4000);

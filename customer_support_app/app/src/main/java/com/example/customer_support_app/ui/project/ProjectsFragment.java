@@ -56,7 +56,8 @@ public class ProjectsFragment extends Fragment {
 
         createFirstDialog.getWindow().clearFlags(WindowManager.LayoutParams.FLAG_DIM_BEHIND);
 
-        //------------------------------------ Pager-----------------   ---------------//
+
+        //------------------------------------ Pager--------------------------------------------//
         TabLayout tabLayout = root.findViewById(R.id.tabLayout);
         ViewPager2 viewPager2 = root.findViewById(R.id.viewPager);
 
