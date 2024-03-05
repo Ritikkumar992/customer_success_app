@@ -1,0 +1,405 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+<LinearLayout
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".PageFragment1"
+    android:background="@color/white"
+    android:padding="10dp"
+    android:layout_gravity="start"
+    >
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="120dp"
+        android:text="Excalation Matrix"
+        android:textSize="26sp"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Operational Excalation Matrix"
+        android:textSize="18sp"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="2dp"
+        />
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:stretchColumns="*"
+            android:padding="10dp"
+            >
+            <TableRow
+                android:background="@drawable/table_row_bg"
+                android:padding="6dp"
+                >
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Excalation Matrix"
+                    android:textStyle="bold"
+                    android:padding="8dp"
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Name"
+                    android:textStyle="bold"
+                    android:padding="8dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Role"
+                    android:textStyle="bold"
+                    android:padding="8dp" />
+            </TableRow>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="8dp"/>
+            <TableRow
+                android:background="@drawable/table_row_bg"
+                android:padding="4dp"
+                >
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Level 1"
+                    android:padding="8dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Dipa Manujmdar"
+                    android:padding="8dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Project Manager"
+                    android:padding="8dp" />
+            </TableRow>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="8dp"/>
+            <TableRow
+                android:background="@drawable/table_row_bg"
+                android:padding="4dp"
+                >
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Level 2"
+                    android:padding="8dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Dipa Manujmdar"
+                    android:padding="8dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Project Manager"
+                    android:padding="8dp" />
+            </TableRow>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="8dp"/>
+
+            <TableRow
+                android:background="@drawable/table_row_bg"
+                android:padding="4dp"
+                >
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Level 3"
+                    android:padding="8dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Dipa Manujmdar"
+                    android:padding="8dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Project Manager"
+                    android:padding="8dp" />
+            </TableRow>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="8dp"/>
+        </TableLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Financial Excalation Matrix"
+        android:textSize="18sp"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="2dp"
+        />
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:stretchColumns="*"
+        android:padding="10dp"
+        >
+        <TableRow
+            android:background="@drawable/table_row_bg"
+            android:padding="6dp"
+            >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Excalation Matrix"
+                android:textStyle="bold"
+                android:padding="8dp"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Name"
+                android:textStyle="bold"
+                android:padding="8dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Role"
+                android:textStyle="bold"
+                android:padding="8dp" />
+        </TableRow>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="8dp"/>
+        <TableRow
+            android:background="@drawable/table_row_bg"
+            android:padding="4dp"
+            >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Level 1"
+                android:padding="8dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Dipa Manujmdar"
+                android:padding="8dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Project Manager"
+                android:padding="8dp" />
+        </TableRow>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="8dp"/>
+        <TableRow
+            android:background="@drawable/table_row_bg"
+            android:padding="4dp"
+            >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Level 2"
+                android:padding="8dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Dipa Manujmdar"
+                android:padding="8dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Project Manager"
+                android:padding="8dp" />
+        </TableRow>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="8dp"/>
+
+        <TableRow
+            android:background="@drawable/table_row_bg"
+            android:padding="4dp"
+            >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Level 3"
+                android:padding="8dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Dipa Manujmdar"
+                android:padding="8dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Project Manager"
+                android:padding="8dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="8dp"
+                android:text="Project Manager" />
+        </TableRow>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="8dp"/>
+    </TableLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Technical Excalation Matrix"
+        android:textSize="18sp"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="2dp"
+        />
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:stretchColumns="*"
+        android:padding="10dp"
+        >
+        <TableRow
+            android:background="@drawable/table_row_bg"
+            android:padding="6dp"
+            >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Excalation Matrix"
+                android:textStyle="bold"
+                android:padding="8dp"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Name"
+                android:textStyle="bold"
+                android:padding="8dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Role"
+                android:textStyle="bold"
+                android:padding="8dp" />
+        </TableRow>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="8dp"/>
+        <TableRow
+            android:background="@drawable/table_row_bg"
+            android:padding="4dp"
+            >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Level 1"
+                android:padding="8dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Dipa Manujmdar"
+                android:padding="8dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Project Manager"
+                android:padding="8dp" />
+        </TableRow>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="8dp"/>
+        <TableRow
+            android:background="@drawable/table_row_bg"
+            android:padding="4dp"
+            >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Level 2"
+                android:padding="8dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Dipa Manujmdar"
+                android:padding="8dp" />
+
+        </TableRow>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="8dp"/>
+
+        <TableRow
+            android:background="@drawable/table_row_bg"
+            android:padding="4dp"
+            >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Level 3"
+                android:padding="8dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Dipa Manujmdar"
+                android:padding="8dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Project Manager"
+                android:padding="8dp" />
+        </TableRow>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="8dp"/>
+    </TableLayout>
+    <TextView
+        android:id="@+id/project_continue_id"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Continue"
+        android:textSize="18sp"
+        android:padding="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="12dp"
+        android:textColor="@color/white"
+        android:background = "@drawable/button_background"
+        android:gravity="end"
+        />
+</LinearLayout>
+</ScrollView>

@@ -1,0 +1,319 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="start"
+    android:orientation="vertical"
+    tools:context=".PageFragment1"
+    android:background="@color/white"
+    android:padding="10dp"
+    >
+
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="120dp"
+        android:text="Hold"
+        android:textSize="26sp"
+        />
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:stretchColumns="*"
+        android:padding="10dp"
+        >
+
+        <!-- Table Header Row -->
+        <TableRow
+            android:background="@drawable/table_row_bg"
+            android:padding="6dp"
+            >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Project Name"
+                android:textStyle="bold"
+                android:padding="8dp"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Started on"
+                android:textStyle="bold"
+                android:padding="8dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Status"
+                android:textStyle="bold"
+                android:padding="8dp" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Project Manager"
+                android:textStyle="bold"
+                android:padding="8dp" />
+        </TableRow>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="8dp"/>
+        <TableRow
+            android:background="@drawable/table_row_bg"
+            android:padding="4dp"
+            >
+            <TextView
+                android:id="@+id/rowId1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Food on time"
+                android:padding="8dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="12 Feb 24"
+                android:padding="8dp" />
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Hold"
+                android:textSize="16sp"
+                android:textColor="@color/white"
+                android:background="@color/grey"
+                android:padding="8dp"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Dipa Manujmdar"
+                android:padding="8dp" />
+        </TableRow>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="8dp"/>
+        <TableRow
+            android:background="@drawable/table_row_bg"
+            android:padding="4dp"
+            >
+            <TextView
+                android:id="@+id/rowId2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Food on time"
+                android:padding="8dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="12 Feb 24"
+                android:padding="8dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Hold"
+                android:textSize="16sp"
+                android:textColor="@color/white"
+                android:background="@color/grey"
+                android:padding="8dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Dipa Manujmdar"
+                android:padding="8dp" />
+        </TableRow>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="8dp"/>
+        <TableRow
+            android:background="@drawable/table_row_bg"
+            android:padding="4dp"
+            >
+            <TextView
+                android:id="@+id/rowId3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Food on time"
+                android:padding="8dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="12 Feb 24"
+                android:padding="8dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Hold"
+                android:textSize="16sp"
+                android:textColor="@color/white"
+                android:background="@color/grey"
+                android:padding="8dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Dipa Manujmdar"
+                android:padding="8dp" />
+        </TableRow>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="8dp"/>
+        <TableRow
+            android:background="@drawable/table_row_bg"
+            android:padding="4dp"
+            >
+            <TextView
+                android:id="@+id/rowId4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Food on time"
+                android:padding="8dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="12 Feb 24"
+                android:padding="8dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Hold"
+                android:textSize="16sp"
+                android:textColor="@color/white"
+                android:background="@color/grey"
+                android:padding="8dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Dipa Manujmdar"
+                android:padding="8dp" />
+        </TableRow>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="8dp"/>
+        <TableRow
+            android:background="@drawable/table_row_bg"
+            android:padding="4dp"
+            >
+            <TextView
+                android:id="@+id/rowId5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Food on time"
+                android:padding="8dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="12 Feb 24"
+                android:padding="8dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Hold"
+                android:textSize="16sp"
+                android:textColor="@color/white"
+                android:background="@color/grey"
+                android:padding="8dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Dipa Manujmdar"
+                android:padding="8dp" />
+        </TableRow>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="8dp"/>
+
+        <TableRow
+            android:background="@drawable/table_row_bg"
+            android:padding="4dp"
+            >
+            <TextView
+                android:id="@+id/rowId6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Food on time"
+                android:padding="8dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="12 Feb 24"
+                android:padding="8dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Hold"
+                android:textSize="16sp"
+                android:textColor="@color/white"
+                android:background="@color/grey"
+                android:padding="8dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Dipa Manujmdar"
+                android:padding="8dp" />
+        </TableRow>
+        <View
+        android:layout_width="match_parent"
+        android:layout_height="8dp"/>
+        <TableRow
+            android:background="@drawable/table_row_bg"
+            android:padding="4dp"
+            >
+            <TextView
+                android:id="@+id/rowId7"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Food on time"
+                android:padding="8dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="12 Feb 24"
+                android:padding="8dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Hold"
+                android:textSize="16sp"
+                android:textColor="@color/white"
+                android:background="@color/grey"
+                android:padding="8dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Dipa Manjumdar"
+                android:padding="8dp" />
+        </TableRow>
+
+        <!-- Add more rows as needed -->
+    </TableLayout>
+
+</LinearLayout>
