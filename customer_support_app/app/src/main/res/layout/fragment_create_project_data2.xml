@@ -1,63 +1,95 @@
-<LinearLayout
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:gravity="top|center"
-    android:orientation="vertical"
-    >
+    android:layout_height="match_parent">
+
+
         <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="start"
-            android:orientation="horizontal"
-            >
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="50dp"
-                    android:text="Invite Clients"
-                    android:textSize="20dp"
-                    android:textStyle="bold"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginTop="20dp"
-                    />
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="start"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:orientation="vertical"
-            android:layout_marginTop="20dp"
+            tools:context=".PageFragment1"
+            android:background="@color/white"
+            android:padding="10dp"
+            android:gravity="start"
+            android:layout_margin="10dp"
             >
 
+
+                <TextView
+                    android:id="@+id/textView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="120dp"
+                    android:text="Invite Client"
+                    android:textSize="26sp"
+                    />
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Client Name *"
-                    android:textSize="20dp"
-                    android:layout_marginLeft="10dp"
-
+                    android:textSize="18sp"
+                    android:layout_marginBottom="10dp"
                     />
                 <EditText
-                    android:layout_marginTop="6dp"
-                    android:layout_width="300dp"
-                    android:layout_height="wrap_content"
-                    android:hint="Name here"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
                     android:background="@drawable/edit_text_border"
-                    android:padding="16dp"
+                    android:hint="Name "
+                    android:gravity="start"
+                    android:paddingStart="18dp"
+                    android:paddingTop="8dp"
                     />
-        </LinearLayout>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Client Email *"
+                    android:textSize="18sp"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginTop="10dp"
+                    />
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:background="@drawable/edit_text_border"
+                    android:hint="example@gmail.co"
+                    android:gravity="start"
+                    android:paddingStart="18dp"
+                    android:paddingTop="8dp"
+                    />
 
-        <TextView
-            android:id="@+id/continueBtn"
-            android:layout_width="150dp"
-            android:layout_height="wrap_content"
-            android:text="Continue"
-            android:textSize="20sp"
-            android:textColor="@color/white"
-            android:layout_marginBottom="120dp"
-            android:layout_marginTop="20dp"
-            android:padding="20dp"
-            android:background = "@drawable/button_background"
-            android:gravity="center"
-            />
-</LinearLayout>
+                <TextView
+                    android:id="@+id/addClient"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="+ Add "
+                    android:textSize="18sp"
+                    android:padding="10dp"
+                    android:layout_marginTop="10dp"
+                    android:textColor="@color/black"
+                    android:background = "@drawable/button_background1"
+                    android:gravity="center"
+                    />
+
+                <TextView
+                    android:id="@+id/project_continue_id"
+                    android:layout_width="120dp"
+                    android:layout_height="wrap_content"
+                    android:text="Continue"
+                    android:textSize="18sp"
+                    android:padding="10dp"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="10dp"
+                    android:textColor="@color/white"
+                    android:background = "@drawable/button_background"
+                    android:gravity="center"
+                    />
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="80dp"/>
+        </LinearLayout>
+</ScrollView>

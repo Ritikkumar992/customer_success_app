@@ -1,7 +1,7 @@
 <!-- circle_red.xml -->
 <shape xmlns:android="http://schemas.android.com/apk/res/android"
     android:shape="oval">
-    <solid android:color="#FF0000"/>
+    <solid android:color="#D30303"/>
     <size
         android:width="56dp"
         android:height="56dp"/>

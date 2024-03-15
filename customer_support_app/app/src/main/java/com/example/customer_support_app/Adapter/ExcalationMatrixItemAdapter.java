@@ -10,57 +10,54 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.customer_support_app.Model.ExcalationMatrixItemModel;
 import com.example.customer_support_app.Model.ProjectItemModel;
 import com.example.customer_support_app.R;
 
 import java.util.ArrayList;
 
-public class ProjectItemAdapter extends RecyclerView.Adapter<ProjectItemAdapter.ViewHolder> {
+public class ExcalationMatrixItemAdapter extends RecyclerView.Adapter<ExcalationMatrixItemAdapter.ViewHolder> {
 
     Context context;
-    ArrayList<ProjectItemModel> arrayProjectItem;
-    public ProjectItemAdapter(Context context, ArrayList<ProjectItemModel> arrayContact){
+    ArrayList<ExcalationMatrixItemModel> arrayExcalationItem;
+    public ExcalationMatrixItemAdapter(Context context, ArrayList<ExcalationMatrixItemModel> arrayContact){
         this.context = context;
-        this.arrayProjectItem = arrayContact;
+        this.arrayExcalationItem = arrayContact;
     }
 
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(context).inflate(R.layout.project_data_row,parent,false);
+        View view = LayoutInflater.from(context).inflate(R.layout.excalation_matrix_row,parent,false);
         return new ViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
 
-        holder.ProjectName.setText(arrayProjectItem.get(position).projectName);
-        holder.ProjectStatus.setText(arrayProjectItem.get(position).projectStatus);
-        holder.ProjectStatus.setBackgroundColor(arrayProjectItem.get(position).backgroundColor);
-        holder.StartDate.setText(arrayProjectItem.get(position).startDate);
-        holder.ProjectManager.setText(arrayProjectItem.get(position).projectManager);
-        holder.userIcon.setImageResource(arrayProjectItem.get(position).userIcon);
-        holder.rightArrow.setImageResource(arrayProjectItem.get(position).rightArrow);
+        holder.managerLogo.setImageResource(arrayExcalationItem.get(position).userIcon);
+        holder.managerName.setText(arrayExcalationItem.get(position).name);
+        holder.managerRole.setText(arrayExcalationItem.get(position).role);
+        holder.managerLevel.setText(arrayExcalationItem.get(position).level);
+
     }
 
     @Override
     public int getItemCount() {
-        return arrayProjectItem.size();
+        return arrayExcalationItem.size();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder{
 
-        TextView ProjectName, ProjectStatus,StartDate,ProjectManager;
-        ImageView userIcon,rightArrow;
+       ImageView managerLogo;
+       TextView managerName, managerRole, managerLevel;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
 
-            ProjectName = itemView.findViewById(R.id.projectName);
-            ProjectStatus = itemView.findViewById(R.id.projectStatus);
-            StartDate = itemView.findViewById(R.id.projectStartDate);
-            ProjectManager = itemView.findViewById(R.id.projectManager);
-            userIcon = itemView.findViewById(R.id.userIcon);
-            rightArrow = itemView.findViewById(R.id.rightArrowIcon);
+            managerLogo = itemView.findViewById(R.id.manager_icon);
+            managerName = itemView.findViewById(R.id.manager_name);
+            managerRole = itemView.findViewById(R.id.manager_role);
+            managerLevel = itemView.findViewById(R.id.manager_level);
 
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override

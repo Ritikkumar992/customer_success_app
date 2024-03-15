@@ -3,6 +3,7 @@ package com.example.customer_support_app;
 import static com.google.common.reflect.Reflection.getPackageName;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -24,7 +25,6 @@ import java.util.ArrayList;
 
 public class PageFragment1 extends Fragment {
 
-    ArrayList<TextView> rows = new ArrayList<>(); // Array list to stor the textView;
     RecyclerView recyclerView;
     ArrayList<ProjectItemModel> projectItemArr = new ArrayList<>();
 
@@ -41,56 +41,37 @@ public class PageFragment1 extends Fragment {
 
         //================================= Fetching data from API =========================//
 
-        projectItemArr.add(new ProjectItemModel("Sample Project", "In Progress",
+        projectItemArr.add(new ProjectItemModel("Sample Project", "Completed", Color.parseColor("#F17175"),
                 "Started on: 14th March 2024","Created By: Ritik kumar",
                 R.drawable.user_logo,R.drawable.baseline_arrow_forward_ios_24));
 
-        projectItemArr.add(new ProjectItemModel("Sample Project", "In Progress",
+        projectItemArr.add(new ProjectItemModel("Sample Project", "In Progress",Color.parseColor("#6BE671"),
                 "Started on: 14th March 2024","Created By: Ritik kumar",
                 R.drawable.user_logo,R.drawable.baseline_arrow_forward_ios_24));
 
-        projectItemArr.add(new ProjectItemModel("Sample Project", "In Progress",
+        projectItemArr.add(new ProjectItemModel("Sample Project", "Hold",Color.parseColor("#979797"),
                 "Started on: 14th March 2024","Created By: Ritik kumar",
                 R.drawable.user_logo,R.drawable.baseline_arrow_forward_ios_24));
 
-        projectItemArr.add(new ProjectItemModel("Sample Project", "In Progress",
+        projectItemArr.add(new ProjectItemModel("Sample Project", "In Progress",Color.parseColor("#6BE671"),
                 "Started on: 14th March 2024","Created By: Ritik kumar",
                 R.drawable.user_logo,R.drawable.baseline_arrow_forward_ios_24));
-        projectItemArr.add(new ProjectItemModel("Sample Project", "In Progress",
-                "Started on: 14th March 2024","Created By: Ritik kumar",
-                R.drawable.user_logo,R.drawable.baseline_arrow_forward_ios_24));
-
-        projectItemArr.add(new ProjectItemModel("Sample Project", "In Progress",
-                "Started on: 14th March 2024","Created By: Ritik kumar",
-                R.drawable.user_logo,R.drawable.baseline_arrow_forward_ios_24));
-        projectItemArr.add(new ProjectItemModel("Sample Project", "In Progress",
+       projectItemArr.add(new ProjectItemModel("Sample Project", "Completed", Color.parseColor("#F17175"),
                 "Started on: 14th March 2024","Created By: Ritik kumar",
                 R.drawable.user_logo,R.drawable.baseline_arrow_forward_ios_24));
 
-        projectItemArr.add(new ProjectItemModel("Sample Project", "In Progress",
-                "Started on: 14th March 2024","Created By: Ritik kumar",
-                R.drawable.user_logo,R.drawable.baseline_arrow_forward_ios_24));
-        projectItemArr.add(new ProjectItemModel("Sample Project", "In Progress",
+        projectItemArr.add(new ProjectItemModel("Sample Project", "In Progress",Color.parseColor("#6BE671"),
                 "Started on: 14th March 2024","Created By: Ritik kumar",
                 R.drawable.user_logo,R.drawable.baseline_arrow_forward_ios_24));
 
-        projectItemArr.add(new ProjectItemModel("Sample Project", "In Progress",
-                "Started on: 14th March 2024","Created By: Ritik kumar",
-                R.drawable.user_logo,R.drawable.baseline_arrow_forward_ios_24));
-        projectItemArr.add(new ProjectItemModel("Sample Project", "In Progress",
+        projectItemArr.add(new ProjectItemModel("Sample Project", "Hold",Color.parseColor("#979797"),
                 "Started on: 14th March 2024","Created By: Ritik kumar",
                 R.drawable.user_logo,R.drawable.baseline_arrow_forward_ios_24));
 
-        projectItemArr.add(new ProjectItemModel("Sample Project", "In Progress",
-                "Started on: 14th March 2024","Created By: Ritik kumar",
-                R.drawable.user_logo,R.drawable.baseline_arrow_forward_ios_24));
-        projectItemArr.add(new ProjectItemModel("Sample Project", "In Progress",
+        projectItemArr.add(new ProjectItemModel("Sample Project", "In Progress",Color.parseColor("#6BE671"),
                 "Started on: 14th March 2024","Created By: Ritik kumar",
                 R.drawable.user_logo,R.drawable.baseline_arrow_forward_ios_24));
 
-        projectItemArr.add(new ProjectItemModel("Sample Project", "In Progress",
-                "Started on: 14th March 2024","Created By: Ritik kumar",
-                R.drawable.user_logo,R.drawable.baseline_arrow_forward_ios_24));
 
 
         ProjectItemAdapter adapter = new ProjectItemAdapter(requireContext(), projectItemArr);
