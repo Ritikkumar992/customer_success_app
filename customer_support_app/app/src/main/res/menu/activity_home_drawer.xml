@@ -6,23 +6,23 @@
     tools:showIn="navigation_view">
 
     <group android:checkableBehavior="single">
+<!--        <item-->
+<!--            android:id="@+id/nav_new_Project"-->
+<!--            android:title="New Project"-->
+<!--            android:icon="@drawable/baseline_add_24"-->
+<!--            />-->
         <item
-            android:id="@+id/nav_home1"
-            android:title="New Project"
-            android:icon="@drawable/baseline_add_24"
-            />
-        <item
-            android:id="@+id/nav_gallery"
+            android:id="@+id/nav_projects"
             android:title="Projects"
             android:icon="@drawable/baseline_business_center_24"
             />
         <item
-            android:id="@+id/nav_home"
+            android:id="@+id/nav_projectManager"
             android:title="Project Managers"
             android:icon="@drawable/baseline_account_circle_24"
             />
         <item
-            android:id="@+id/nav_slideshow"
+            android:id="@+id/nav_Employee"
             android:title="Employees"
             android:icon="@drawable/baseline_co_present_24"
             />

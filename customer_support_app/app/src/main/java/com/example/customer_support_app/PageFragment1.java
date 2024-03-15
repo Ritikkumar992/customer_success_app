@@ -6,19 +6,18 @@ import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
-import androidx.viewpager2.widget.ViewPager2;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TableRow;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.customer_support_app.Adapter.ProjectItemAdapter;
+import com.example.customer_support_app.Model.ProjectItemModel;
 import com.example.customer_support_app.ProjectData.ProjectData;
-import com.google.android.material.tabs.TabLayout;
-import com.google.android.material.tabs.TabLayoutMediator;
-import com.google.common.collect.Table;
 
 import java.util.ArrayList;
 
@@ -26,34 +25,84 @@ import java.util.ArrayList;
 public class PageFragment1 extends Fragment {
 
     ArrayList<TextView> rows = new ArrayList<>(); // Array list to stor the textView;
+    RecyclerView recyclerView;
+    ArrayList<ProjectItemModel> projectItemArr = new ArrayList<>();
 
     public PageFragment1() {}
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-
         View root = inflater.inflate(R.layout.fragment_page1, container, false);
 
-        // rows.add(root.findViewById(R.id.rowId1));
-        for (int i = 1; i <= 10; i++) {
-            int textViewId = getResources().getIdentifier("rowId" + i, "id", requireActivity().getPackageName());
-            TextView textView = root.findViewById(textViewId);
-            rows.add(textView);
-        }
-        // traversing through each element of rows and applying on click listener.
-        for(int i = 0;i<rows.size();i++){
-            if(rows.get(i) != null){
-                rows.get(i).setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        Intent iProjectData = new Intent(requireContext(), ProjectData.class);
-                        startActivity(iProjectData);
-                        Toast.makeText(getContext(), "TableRow clicked", Toast.LENGTH_SHORT).show();
-                    }
-                });
+        recyclerView = root.findViewById(R.id.recyclerViewPageFragment1);
+        recyclerView.setHasFixedSize(true);
+        recyclerView.setLayoutManager(new LinearLayoutManager(requireContext()));
+
+        //================================= Fetching data from API =========================//
+
+        projectItemArr.add(new ProjectItemModel("Sample Project", "In Progress",
+                "Started on: 14th March 2024","Created By: Ritik kumar",
+                R.drawable.user_logo,R.drawable.baseline_arrow_forward_ios_24));
+
+        projectItemArr.add(new ProjectItemModel("Sample Project", "In Progress",
+                "Started on: 14th March 2024","Created By: Ritik kumar",
+                R.drawable.user_logo,R.drawable.baseline_arrow_forward_ios_24));
+
+        projectItemArr.add(new ProjectItemModel("Sample Project", "In Progress",
+                "Started on: 14th March 2024","Created By: Ritik kumar",
+                R.drawable.user_logo,R.drawable.baseline_arrow_forward_ios_24));
+
+        projectItemArr.add(new ProjectItemModel("Sample Project", "In Progress",
+                "Started on: 14th March 2024","Created By: Ritik kumar",
+                R.drawable.user_logo,R.drawable.baseline_arrow_forward_ios_24));
+        projectItemArr.add(new ProjectItemModel("Sample Project", "In Progress",
+                "Started on: 14th March 2024","Created By: Ritik kumar",
+                R.drawable.user_logo,R.drawable.baseline_arrow_forward_ios_24));
+
+        projectItemArr.add(new ProjectItemModel("Sample Project", "In Progress",
+                "Started on: 14th March 2024","Created By: Ritik kumar",
+                R.drawable.user_logo,R.drawable.baseline_arrow_forward_ios_24));
+        projectItemArr.add(new ProjectItemModel("Sample Project", "In Progress",
+                "Started on: 14th March 2024","Created By: Ritik kumar",
+                R.drawable.user_logo,R.drawable.baseline_arrow_forward_ios_24));
+
+        projectItemArr.add(new ProjectItemModel("Sample Project", "In Progress",
+                "Started on: 14th March 2024","Created By: Ritik kumar",
+                R.drawable.user_logo,R.drawable.baseline_arrow_forward_ios_24));
+        projectItemArr.add(new ProjectItemModel("Sample Project", "In Progress",
+                "Started on: 14th March 2024","Created By: Ritik kumar",
+                R.drawable.user_logo,R.drawable.baseline_arrow_forward_ios_24));
+
+        projectItemArr.add(new ProjectItemModel("Sample Project", "In Progress",
+                "Started on: 14th March 2024","Created By: Ritik kumar",
+                R.drawable.user_logo,R.drawable.baseline_arrow_forward_ios_24));
+        projectItemArr.add(new ProjectItemModel("Sample Project", "In Progress",
+                "Started on: 14th March 2024","Created By: Ritik kumar",
+                R.drawable.user_logo,R.drawable.baseline_arrow_forward_ios_24));
+
+        projectItemArr.add(new ProjectItemModel("Sample Project", "In Progress",
+                "Started on: 14th March 2024","Created By: Ritik kumar",
+                R.drawable.user_logo,R.drawable.baseline_arrow_forward_ios_24));
+        projectItemArr.add(new ProjectItemModel("Sample Project", "In Progress",
+                "Started on: 14th March 2024","Created By: Ritik kumar",
+                R.drawable.user_logo,R.drawable.baseline_arrow_forward_ios_24));
+
+        projectItemArr.add(new ProjectItemModel("Sample Project", "In Progress",
+                "Started on: 14th March 2024","Created By: Ritik kumar",
+                R.drawable.user_logo,R.drawable.baseline_arrow_forward_ios_24));
+
+
+        ProjectItemAdapter adapter = new ProjectItemAdapter(requireContext(), projectItemArr);
+        adapter.setOnItemClickListener(new ProjectItemAdapter.OnItemClickListener() {
+            @Override
+            public void onItemClick(int position) {
+                Toast.makeText(requireContext(), "Projeect Item clicked", Toast.LENGTH_SHORT).show();
+                Intent iProjectData = new Intent(requireContext(), ProjectData.class);
+                startActivity(iProjectData);
             }
-        }
+        });
+        recyclerView.setAdapter(adapter);
         return root;
     }
 }

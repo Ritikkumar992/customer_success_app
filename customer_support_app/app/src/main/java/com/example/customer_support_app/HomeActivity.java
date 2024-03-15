@@ -3,35 +3,36 @@ package com.example.customer_support_app;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
-import android.view.View;
 import android.view.Menu;
+import android.view.MenuItem;
+import android.view.View;
 import android.view.WindowInsets;
 import android.view.WindowInsetsController;
 import android.view.WindowManager;
+import android.widget.Toast;
 
 import com.example.customer_support_app.createProject.createProjectActivity;
+import com.example.customer_support_app.ui.project.ProjectsFragment;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.navigation.NavigationView;
+
+import androidx.annotation.NonNull;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.appcompat.app.AppCompatActivity;
-import com.example.customer_support_app.databinding.ActivityHomeBinding;
 
 public class HomeActivity extends AppCompatActivity {
 
     private AppBarConfiguration mAppBarConfiguration;
-    private ActivityHomeBinding binding;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-        binding = ActivityHomeBinding.inflate(getLayoutInflater());
-        setContentView(binding.getRoot());
-        setSupportActionBar(binding.appBarHome.toolbar);
+        setContentView(R.layout.activity_home); // Use layout XML file directly
+        setSupportActionBar(findViewById(R.id.toolbar)); // Use findViewById to access the toolbar
 
         // remove title bar
         if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.R){
@@ -45,36 +46,32 @@ public class HomeActivity extends AppCompatActivity {
         }
 
         //--------------------------- Floating Action Bar Implementation ---------------------------------------//
-        binding.appBarHome.fab.setOnClickListener(new View.OnClickListener() {
+        findViewById(R.id.fab).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent iAddProject = new Intent(HomeActivity.this, createProjectActivity.class);
                 startActivity(iAddProject);
-//                finish();
-//                Snackbar.make(view, "Floating Action Button Clicked", Snackbar.LENGTH_LONG)
-//                        .setAction("Action", null).show();
             }
         });
 
         //--------------------------------- SIDE NAVIGATION DRAWER IMPLEMENTATION-----------------------------//
-        DrawerLayout drawer = binding.drawerLayout;
-        NavigationView navigationView = binding.navView;
+        DrawerLayout drawer = findViewById(R.id.drawer_layout);
+        NavigationView navigationView = findViewById(R.id.nav_view);
 
         mAppBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.nav_home, R.id.nav_gallery, R.id.nav_slideshow
+                R.id.nav_projects, R.id.nav_projectManager, R.id.nav_Employee, R.id.nav_settings
         )
                 .setOpenableLayout(drawer)
                 .build();
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_home);
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
+
     }
 
 
-    //-------------------------------- onCreateOptionsMenu() method to get login, logout menu.---------------//
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.home, menu);
         return true;
     }
