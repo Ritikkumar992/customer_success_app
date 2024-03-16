@@ -39,6 +39,7 @@ public class ExcalationMatrixItemAdapter extends RecyclerView.Adapter<Excalation
         holder.managerName.setText(arrayExcalationItem.get(position).name);
         holder.managerRole.setText(arrayExcalationItem.get(position).role);
         holder.managerLevel.setText(arrayExcalationItem.get(position).level);
+        holder.levelbackground.setBackgroundResource(arrayExcalationItem.get(position).levelbackground);
 
     }
 
@@ -49,7 +50,7 @@ public class ExcalationMatrixItemAdapter extends RecyclerView.Adapter<Excalation
 
     public class ViewHolder extends RecyclerView.ViewHolder{
 
-       ImageView managerLogo;
+       ImageView managerLogo, levelbackground;
        TextView managerName, managerRole, managerLevel;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -58,6 +59,7 @@ public class ExcalationMatrixItemAdapter extends RecyclerView.Adapter<Excalation
             managerName = itemView.findViewById(R.id.manager_name);
             managerRole = itemView.findViewById(R.id.manager_role);
             managerLevel = itemView.findViewById(R.id.manager_level);
+            levelbackground = itemView.findViewById(R.id.circle_background);
 
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <ScrollView
+    android:id="@+id/scroolView"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -74,20 +75,40 @@
                     android:background = "@drawable/button_background1"
                     android:gravity="center"
                     />
-
-                <TextView
-                    android:id="@+id/project_continue_id"
-                    android:layout_width="120dp"
-                    android:layout_height="wrap_content"
-                    android:text="Continue"
-                    android:textSize="18sp"
-                    android:padding="10dp"
-                    android:layout_gravity="center"
-                    android:layout_marginTop="10dp"
-                    android:textColor="@color/white"
-                    android:background = "@drawable/button_background"
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="80dp"
+                    android:orientation="horizontal"
                     android:gravity="center"
-                    />
+                    >
+                        <TextView
+                            android:id="@+id/backBtnInviteClient"
+                            android:layout_width="120dp"
+                            android:layout_height="wrap_content"
+                            android:text="back"
+                            android:textSize="18sp"
+                            android:padding="10dp"
+                            android:layout_marginTop="10dp"
+                            android:textColor="@color/white"
+                            android:background = "@drawable/button_background"
+                            android:gravity="center"
+                            />
+                        <TextView
+                            android:id="@+id/continueBtnInviteClient"
+                            android:layout_width="120dp"
+                            android:layout_height="wrap_content"
+                            android:text="Continue"
+                            android:textSize="18sp"
+                            android:padding="10dp"
+                            android:layout_marginTop="10dp"
+                            android:textColor="@color/white"
+                            android:background = "@drawable/button_background"
+                            android:gravity="center"
+                            android:layout_marginLeft="20dp"
+                            />
+
+                </LinearLayout>
+
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="80dp"/>

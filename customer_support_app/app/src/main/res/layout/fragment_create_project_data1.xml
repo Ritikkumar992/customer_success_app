@@ -51,7 +51,7 @@
     </LinearLayout>
 
     <TextView
-        android:id="@+id/continueBtn"
+        android:id="@+id/continueBtnProjectName"
         android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:text="Continue"

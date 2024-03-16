@@ -42,18 +42,38 @@
             android:paddingStart="18dp"
             android:paddingTop="8dp"
             />
-        <TextView
-            android:id="@+id/project_continue_id"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Continue"
-            android:textSize="18sp"
-            android:padding="10dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="8dp"
-            android:textColor="@color/white"
-            android:background = "@drawable/button_background"
-            android:gravity="end"
-            />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:orientation="horizontal"
+            android:gravity="center"
+            >
+            <TextView
+                android:id="@+id/backBtnVersionHistory"
+                android:layout_width="120dp"
+                android:layout_height="wrap_content"
+                android:text="back"
+                android:textSize="18sp"
+                android:padding="10dp"
+                android:layout_marginTop="10dp"
+                android:textColor="@color/white"
+                android:background = "@drawable/button_background"
+                android:gravity="center"
+                />
+            <TextView
+                android:id="@+id/continueBtnVersionHistory"
+                android:layout_width="120dp"
+                android:layout_height="wrap_content"
+                android:text="Continue"
+                android:textSize="18sp"
+                android:padding="10dp"
+                android:layout_marginTop="10dp"
+                android:textColor="@color/white"
+                android:background = "@drawable/button_background"
+                android:gravity="center"
+                android:layout_marginLeft="20dp"
+                />
+
+        </LinearLayout>
     </LinearLayout>
 </ScrollView>

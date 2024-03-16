@@ -1,8 +1,10 @@
 package com.example.customer_support_app;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.viewpager2.widget.ViewPager2;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,28 +17,36 @@ import android.widget.Toast;
 
 public class CreateProjectDataFragment3 extends Fragment {
 
-    TextView SubmitBtn;
+    TextView SubmitBtn, backBtn;
 
-    public CreateProjectDataFragment3() {
-        // Required empty public constructor
-    }
+    public CreateProjectDataFragment3() {}
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-//        return inflater.inflate(R.layout.fragment_create_project_data3, container, false);
 
         View rootView = inflater.inflate(R.layout.fragment_create_project_data3, container, false);
+
+
 
         // SUBMIT BUTTON CLICKED:
         SubmitBtn = rootView.findViewById(R.id.submitBtn);
         SubmitBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Intent intent = new Intent(requireContext(), HomeActivity.class);
+                startActivity(intent);
                 Toast.makeText(requireContext(), "New Project Added", Toast.LENGTH_SHORT).show();
             }
         });
+
+        backBtn = rootView.findViewById(R.id.backBtn);
+        backBtn.setOnClickListener(v->{
+            ViewPager2 viewPager = getActivity().findViewById(R.id.create_project_data_viewPager);
+            viewPager.setCurrentItem(1, true);
+        });
+
+
 
         Spinner spinner = rootView.findViewById(R.id.spinnerId_project_manager);
 

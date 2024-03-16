@@ -51,7 +51,6 @@
                             android:id="@+id/circle_background"
                             android:layout_width="36dp"
                             android:layout_height="36dp"
-                            android:src="@drawable/circle_red"
                             android:layout_centerHorizontal="true"/>
                         <TextView
                             android:id="@+id/manager_level"

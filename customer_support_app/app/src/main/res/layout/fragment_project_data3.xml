@@ -2,7 +2,7 @@
 
 <ScrollView
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     xmlns:android="http://schemas.android.com/apk/res/android">
 
 <LinearLayout
@@ -25,14 +25,20 @@
         android:textSize="26sp"
         />
 
-    <TextView
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Operational Excalation Matrix"
-        android:textSize="18sp"
-        android:layout_marginTop="20dp"
-        android:layout_marginBottom="2dp"
-        />
+        android:orientation="vertical"
+        android:layout_gravity="center"
+        >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Operational Excalation Matrix"
+            android:textSize="18sp"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="2dp"
+            />
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -42,24 +48,25 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Excalation Matrix"
+                android:text="Name"
                 android:textStyle="bold"
                 android:padding="8dp"
                 />
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Name"
+                android:text="Role"
                 android:gravity="center"
                 android:textStyle="bold"
                 android:padding="8dp"
+                android:layout_marginLeft="80dp"
                 android:layout_weight="1"
 
                 />
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Role"
+                android:text="Level"
                 android:layout_marginEnd="10dp"
                 android:textStyle="bold"
                 android:padding="8dp"
@@ -69,264 +76,151 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/recyclerViewExcalationMatrix1"
-        />
+            />
+    </LinearLayout>
 
-
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Financial Excalation Matrix"
-        android:textSize="18sp"
-        android:layout_marginTop="20dp"
-        android:layout_marginBottom="2dp"
-        />
-    <TableLayout
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:stretchColumns="*"
-        android:padding="10dp"
+        android:orientation="vertical"
+        android:layout_gravity="center"
         >
-        <TableRow
-            android:background="@drawable/table_row_bg"
-            android:padding="6dp"
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Financial Excalation Matrix"
+            android:textSize="18sp"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="2dp"
+            />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
             >
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Excalation Matrix"
-                android:textStyle="bold"
-                android:padding="8dp"
-                />
-
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Name"
                 android:textStyle="bold"
-                android:padding="8dp" />
-
+                android:padding="8dp"
+                />
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Role"
+                android:gravity="center"
                 android:textStyle="bold"
-                android:padding="8dp" />
-        </TableRow>
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="8dp"/>
-        <TableRow
-            android:background="@drawable/table_row_bg"
-            android:padding="4dp"
-            >
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Level 1"
-                android:padding="8dp" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Dipa Manujmdar"
-                android:padding="8dp" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Project Manager"
-                android:padding="8dp" />
-        </TableRow>
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="8dp"/>
-        <TableRow
-            android:background="@drawable/table_row_bg"
-            android:padding="4dp"
-            >
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Level 2"
-                android:padding="8dp" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Dipa Manujmdar"
-                android:padding="8dp" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Project Manager"
-                android:padding="8dp" />
-        </TableRow>
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="8dp"/>
-
-        <TableRow
-            android:background="@drawable/table_row_bg"
-            android:padding="4dp"
-            >
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Level 3"
-                android:padding="8dp" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Dipa Manujmdar"
-                android:padding="8dp" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Project Manager"
-                android:padding="8dp" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
                 android:padding="8dp"
-                android:text="Project Manager" />
-        </TableRow>
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="8dp"/>
-    </TableLayout>
+                android:layout_marginLeft="80dp"
+                android:layout_weight="1"
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Technical Excalation Matrix"
-        android:textSize="18sp"
-        android:layout_marginTop="20dp"
-        android:layout_marginBottom="2dp"
-        />
-    <TableLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:stretchColumns="*"
-        android:padding="10dp"
-        >
-        <TableRow
-            android:background="@drawable/table_row_bg"
-            android:padding="6dp"
-            >
+                />
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Excalation Matrix"
+                android:text="Level"
+                android:layout_marginEnd="10dp"
                 android:textStyle="bold"
                 android:padding="8dp"
                 />
+        </LinearLayout>
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/recyclerViewExcalationMatrix2"
+            />
+    </LinearLayout>
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_gravity="center"
+        >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Technical Excalation Matrix"
+            android:textSize="18sp"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="2dp"
+            />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            >
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Name"
                 android:textStyle="bold"
-                android:padding="8dp" />
-
+                android:padding="8dp"
+                />
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Role"
+                android:gravity="center"
                 android:textStyle="bold"
-                android:padding="8dp" />
-        </TableRow>
-        <View
+                android:padding="8dp"
+                android:layout_marginLeft="80dp"
+                android:layout_weight="1"
+
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Level"
+                android:layout_marginEnd="10dp"
+                android:textStyle="bold"
+                android:padding="8dp"
+                />
+        </LinearLayout>
+        <androidx.recyclerview.widget.RecyclerView
             android:layout_width="match_parent"
-            android:layout_height="8dp"/>
-        <TableRow
-            android:background="@drawable/table_row_bg"
-            android:padding="4dp"
-            >
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Level 1"
-                android:padding="8dp" />
+            android:layout_height="wrap_content"
+            android:id="@+id/recyclerViewExcalationMatrix3"
+            />
+    </LinearLayout>
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Dipa Manujmdar"
-                android:padding="8dp" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Project Manager"
-                android:padding="8dp" />
-        </TableRow>
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="8dp"/>
-        <TableRow
-            android:background="@drawable/table_row_bg"
-            android:padding="4dp"
-            >
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Level 2"
-                android:padding="8dp" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Dipa Manujmdar"
-                android:padding="8dp" />
-
-        </TableRow>
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="8dp"/>
-
-        <TableRow
-            android:background="@drawable/table_row_bg"
-            android:padding="4dp"
-            >
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Level 3"
-                android:padding="8dp" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Dipa Manujmdar"
-                android:padding="8dp" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Project Manager"
-                android:padding="8dp" />
-        </TableRow>
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="8dp"/>
-    </TableLayout>
-    <TextView
-        android:id="@+id/project_continue_id"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Continue"
-        android:textSize="18sp"
-        android:padding="10dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="12dp"
-        android:textColor="@color/white"
-        android:background = "@drawable/button_background"
-        android:gravity="end"
-        />
+        android:orientation="horizontal"
+        android:gravity="center"
+        >
+        <TextView
+            android:id="@+id/backBtnExcalation"
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:text="back"
+            android:textSize="18sp"
+            android:padding="10dp"
+            android:layout_marginTop="10dp"
+            android:textColor="@color/white"
+            android:background = "@drawable/button_background"
+            android:gravity="center"
+            />
+        <TextView
+            android:id="@+id/continueBtnExcalation"
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:text="Continue"
+            android:textSize="18sp"
+            android:padding="10dp"
+            android:layout_marginTop="10dp"
+            android:textColor="@color/white"
+            android:background = "@drawable/button_background"
+            android:gravity="center"
+            android:layout_marginLeft="20dp"
+            />
+
+    </LinearLayout>
 </LinearLayout>
 </ScrollView>

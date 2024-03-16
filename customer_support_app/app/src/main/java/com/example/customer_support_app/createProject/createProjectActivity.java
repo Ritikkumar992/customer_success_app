@@ -11,6 +11,7 @@ import android.view.MenuItem;
 import android.view.WindowInsets;
 import android.view.WindowInsetsController;
 import android.view.WindowManager;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.customer_support_app.HomeActivity;
@@ -22,7 +23,6 @@ import com.google.android.material.tabs.TabLayout;
 import com.google.android.material.tabs.TabLayoutMediator;
 
 public class createProjectActivity extends AppCompatActivity {
-
     private final String[] titles = {"Project Details", "Invite Client","Select Project Manager"};
 
     @Override
@@ -55,6 +55,7 @@ public class createProjectActivity extends AppCompatActivity {
         //accessing createProjectDataAdapter.java class to attach adapter to fetch data.
         createProjectDataAdapter adapterClass = new createProjectDataAdapter(getSupportFragmentManager(), getLifecycle());
         viewPager2.setAdapter(adapterClass);
+
 
         new TabLayoutMediator(tabLayout, viewPager2, (tab, position) ->{
             tab.setText(titles[position]);
