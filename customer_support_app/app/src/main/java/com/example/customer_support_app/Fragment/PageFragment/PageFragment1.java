@@ -19,14 +19,16 @@ import com.example.customer_support_app.Adapter.ProjectItemAdapter;
 import com.example.customer_support_app.Model.ProjectItemModel;
 import com.example.customer_support_app.ProjectData.ProjectData;
 import com.example.customer_support_app.R;
+import com.firebase.ui.database.FirebaseRecyclerOptions;
+import com.google.firebase.database.FirebaseDatabase;
 
-import java.util.ArrayList;
+
 
 
 public class PageFragment1 extends Fragment {
 
     RecyclerView recyclerView;
-    ArrayList<ProjectItemModel> projectItemArr = new ArrayList<>();
+    ProjectItemAdapter adapter;
 
     public PageFragment1() {}
 
@@ -41,49 +43,59 @@ public class PageFragment1 extends Fragment {
 
         //================================= Fetching data from API =========================//
 
-        projectItemArr.add(new ProjectItemModel("Sample Project", "Completed", Color.parseColor("#F17175"),
-                "Started on: 14th March 2024","Created By: Ritik kumar",
-                R.drawable.user_logo,R.drawable.baseline_arrow_forward_ios_24));
+//        projectItemArr.add(new ProjectItemModel("Sample Project", "Completed", Color.parseColor("#F17175"),
+//                "Started on: 14th March 2024","Created By: Ritik kumar",
+//                R.drawable.user_logo,R.drawable.baseline_arrow_forward_ios_24));
+//
+//        projectItemArr.add(new ProjectItemModel("Sample Project", "In Progress",Color.parseColor("#6BE671"),
+//                "Started on: 14th March 2024","Created By: Ritik kumar",
+//                R.drawable.user_logo,R.drawable.baseline_arrow_forward_ios_24));
+//
+//        projectItemArr.add(new ProjectItemModel("Sample Project", "Hold",Color.parseColor("#979797"),
+//                "Started on: 14th March 2024","Created By: Ritik kumar",
+//                R.drawable.user_logo,R.drawable.baseline_arrow_forward_ios_24));
+//
+//        projectItemArr.add(new ProjectItemModel("Sample Project", "In Progress",Color.parseColor("#6BE671"),
+//                "Started on: 14th March 2024","Created By: Ritik kumar",
+//                R.drawable.user_logo,R.drawable.baseline_arrow_forward_ios_24));
+//        projectItemArr.add(new ProjectItemModel("Sample Project", "Completed", Color.parseColor("#F17175"),
+//                "Started on: 14th March 2024","Created By: Ritik kumar",
+//                R.drawable.user_logo,R.drawable.baseline_arrow_forward_ios_24));
+//
+//        projectItemArr.add(new ProjectItemModel("Sample Project", "In Progress",Color.parseColor("#6BE671"),
+//                "Started on: 14th March 2024","Created By: Ritik kumar",
+//                R.drawable.user_logo,R.drawable.baseline_arrow_forward_ios_24));
+//
+//        projectItemArr.add(new ProjectItemModel("Sample Project", "Hold",Color.parseColor("#979797"),
+//                "Started on: 14th March 2024","Created By: Ritik kumar",
+//                R.drawable.user_logo,R.drawable.baseline_arrow_forward_ios_24));
+//
+//        projectItemArr.add(new ProjectItemModel("Sample Project", "In Progress",Color.parseColor("#6BE671"),
+//                "Started on: 14th March 2024","Created By: Ritik kumar",
+//                R.drawable.user_logo,R.drawable.baseline_arrow_forward_ios_24));
 
-        projectItemArr.add(new ProjectItemModel("Sample Project", "In Progress",Color.parseColor("#6BE671"),
-                "Started on: 14th March 2024","Created By: Ritik kumar",
-                R.drawable.user_logo,R.drawable.baseline_arrow_forward_ios_24));
 
-        projectItemArr.add(new ProjectItemModel("Sample Project", "Hold",Color.parseColor("#979797"),
-                "Started on: 14th March 2024","Created By: Ritik kumar",
-                R.drawable.user_logo,R.drawable.baseline_arrow_forward_ios_24));
+        //======================================== Read Operation :  Fetching Data from Firebase ======================//
+        FirebaseRecyclerOptions<ProjectItemModel> options =
+                new FirebaseRecyclerOptions.Builder<ProjectItemModel>()
+                        .setQuery(FirebaseDatabase.getInstance().getReference().child("createProjectTable"), ProjectItemModel.class)
+                        .build();
 
-        projectItemArr.add(new ProjectItemModel("Sample Project", "In Progress",Color.parseColor("#6BE671"),
-                "Started on: 14th March 2024","Created By: Ritik kumar",
-                R.drawable.user_logo,R.drawable.baseline_arrow_forward_ios_24));
-        projectItemArr.add(new ProjectItemModel("Sample Project", "Completed", Color.parseColor("#F17175"),
-                "Started on: 14th March 2024","Created By: Ritik kumar",
-                R.drawable.user_logo,R.drawable.baseline_arrow_forward_ios_24));
-
-        projectItemArr.add(new ProjectItemModel("Sample Project", "In Progress",Color.parseColor("#6BE671"),
-                "Started on: 14th March 2024","Created By: Ritik kumar",
-                R.drawable.user_logo,R.drawable.baseline_arrow_forward_ios_24));
-
-        projectItemArr.add(new ProjectItemModel("Sample Project", "Hold",Color.parseColor("#979797"),
-                "Started on: 14th March 2024","Created By: Ritik kumar",
-                R.drawable.user_logo,R.drawable.baseline_arrow_forward_ios_24));
-
-        projectItemArr.add(new ProjectItemModel("Sample Project", "In Progress",Color.parseColor("#6BE671"),
-                "Started on: 14th March 2024","Created By: Ritik kumar",
-                R.drawable.user_logo,R.drawable.baseline_arrow_forward_ios_24));
-
-
-
-        ProjectItemAdapter adapter = new ProjectItemAdapter(requireContext(), projectItemArr);
-        adapter.setOnItemClickListener(new ProjectItemAdapter.OnItemClickListener() {
-            @Override
-            public void onItemClick(int position) {
-                Toast.makeText(requireContext(), "Projeect Item clicked", Toast.LENGTH_SHORT).show();
-                Intent iProjectData = new Intent(requireContext(), ProjectData.class);
-                startActivity(iProjectData);
-            }
-        });
+        adapter = new ProjectItemAdapter(options);
         recyclerView.setAdapter(adapter);
+
+
         return root;
+    }
+    @Override
+    public void onStart() {
+        super.onStart();
+        adapter.startListening();
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+        adapter.stopListening();
     }
 }

@@ -40,6 +40,7 @@
 
             />
         <EditText
+            android:id="@+id/projectNameId"
             android:layout_marginTop="6dp"
             android:layout_width="300dp"
             android:layout_height="wrap_content"

@@ -40,38 +40,38 @@ public class PageFragment4 extends Fragment {
 
         //================================= Fetching data from API ========================= //
 
-        projectItemArr.add(new ProjectItemModel("Sample Project", "Hold", Color.parseColor("#979797"),
-                "Started on: 14th March 2024","Created By: Ritik kumar",
-                R.drawable.user_logo,R.drawable.baseline_arrow_forward_ios_24));
-        projectItemArr.add(new ProjectItemModel("Sample Project", "Hold",Color.parseColor("#979797"),
-                "Started on: 14th March 2024","Created By: Ritik kumar",
-                R.drawable.user_logo,R.drawable.baseline_arrow_forward_ios_24));
-        projectItemArr.add(new ProjectItemModel("Sample Project", "Hold",Color.parseColor("#979797"),
-                "Started on: 14th March 2024","Created By: Ritik kumar",
-                R.drawable.user_logo,R.drawable.baseline_arrow_forward_ios_24));
-        projectItemArr.add(new ProjectItemModel("Sample Project", "Hold",Color.parseColor("#979797"),
-                "Started on: 14th March 2024","Created By: Ritik kumar",
-                R.drawable.user_logo,R.drawable.baseline_arrow_forward_ios_24));
-        projectItemArr.add(new ProjectItemModel("Sample Project", "Hold",Color.parseColor("#979797"),
-                "Started on: 14th March 2024","Created By: Ritik kumar",
-                R.drawable.user_logo,R.drawable.baseline_arrow_forward_ios_24));
-        projectItemArr.add(new ProjectItemModel("Sample Project", "Hold",Color.parseColor("#979797"),
-                "Started on: 14th March 2024","Created By: Ritik kumar",
-                R.drawable.user_logo,R.drawable.baseline_arrow_forward_ios_24));
-
-
-
-
-        ProjectItemAdapter adapter = new ProjectItemAdapter(requireContext(), projectItemArr);
-        adapter.setOnItemClickListener(new ProjectItemAdapter.OnItemClickListener() {
-            @Override
-            public void onItemClick(int position) {
-                Toast.makeText(requireContext(), "Projeect Item clicked", Toast.LENGTH_SHORT).show();
-                Intent iProjectData = new Intent(requireContext(), ProjectData.class);
-                startActivity(iProjectData);
-            }
-        });
-        recyclerView.setAdapter(adapter);
+//        projectItemArr.add(new ProjectItemModel("Sample Project", "Hold", Color.parseColor("#979797"),
+//                "Started on: 14th March 2024","Created By: Ritik kumar",
+//                R.drawable.user_logo,R.drawable.baseline_arrow_forward_ios_24));
+//        projectItemArr.add(new ProjectItemModel("Sample Project", "Hold",Color.parseColor("#979797"),
+//                "Started on: 14th March 2024","Created By: Ritik kumar",
+//                R.drawable.user_logo,R.drawable.baseline_arrow_forward_ios_24));
+//        projectItemArr.add(new ProjectItemModel("Sample Project", "Hold",Color.parseColor("#979797"),
+//                "Started on: 14th March 2024","Created By: Ritik kumar",
+//                R.drawable.user_logo,R.drawable.baseline_arrow_forward_ios_24));
+//        projectItemArr.add(new ProjectItemModel("Sample Project", "Hold",Color.parseColor("#979797"),
+//                "Started on: 14th March 2024","Created By: Ritik kumar",
+//                R.drawable.user_logo,R.drawable.baseline_arrow_forward_ios_24));
+//        projectItemArr.add(new ProjectItemModel("Sample Project", "Hold",Color.parseColor("#979797"),
+//                "Started on: 14th March 2024","Created By: Ritik kumar",
+//                R.drawable.user_logo,R.drawable.baseline_arrow_forward_ios_24));
+//        projectItemArr.add(new ProjectItemModel("Sample Project", "Hold",Color.parseColor("#979797"),
+//                "Started on: 14th March 2024","Created By: Ritik kumar",
+//                R.drawable.user_logo,R.drawable.baseline_arrow_forward_ios_24));
+//
+//
+//
+//
+//        ProjectItemAdapter adapter = new ProjectItemAdapter(requireContext(), projectItemArr);
+//        adapter.setOnItemClickListener(new ProjectItemAdapter.OnItemClickListener() {
+//            @Override
+//            public void onItemClick(int position) {
+//                Toast.makeText(requireContext(), "Projeect Item clicked", Toast.LENGTH_SHORT).show();
+//                Intent iProjectData = new Intent(requireContext(), ProjectData.class);
+//                startActivity(iProjectData);
+//            }
+//        });
+//        recyclerView.setAdapter(adapter);
         return root;
     }
 }
