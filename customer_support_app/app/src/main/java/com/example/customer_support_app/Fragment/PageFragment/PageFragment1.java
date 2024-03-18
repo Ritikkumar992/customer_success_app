@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -16,19 +17,26 @@ import android.view.ViewGroup;
 import android.widget.Toast;
 
 import com.example.customer_support_app.Adapter.ProjectItemAdapter;
+import com.example.customer_support_app.Firebase.FirebaseResourse;
 import com.example.customer_support_app.Model.ProjectItemModel;
 import com.example.customer_support_app.ProjectData.ProjectData;
 import com.example.customer_support_app.R;
-import com.firebase.ui.database.FirebaseRecyclerOptions;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
-
+import java.util.ArrayList;
 
 
 public class PageFragment1 extends Fragment {
 
     RecyclerView recyclerView;
     ProjectItemAdapter adapter;
+    ArrayList<ProjectItemModel> projectItemModelsArr = new ArrayList<>();
+
+    DatabaseReference database;
 
     public PageFragment1() {}
 
@@ -37,9 +45,8 @@ public class PageFragment1 extends Fragment {
                              Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.fragment_page1, container, false);
 
-        recyclerView = root.findViewById(R.id.recyclerViewPageFragment1);
-        recyclerView.setHasFixedSize(true);
-        recyclerView.setLayoutManager(new LinearLayoutManager(requireContext()));
+
+
 
         //================================= Fetching data from API =========================//
 
@@ -76,26 +83,32 @@ public class PageFragment1 extends Fragment {
 
 
         //======================================== Read Operation :  Fetching Data from Firebase ======================//
-        FirebaseRecyclerOptions<ProjectItemModel> options =
-                new FirebaseRecyclerOptions.Builder<ProjectItemModel>()
-                        .setQuery(FirebaseDatabase.getInstance().getReference().child("createProjectTable"), ProjectItemModel.class)
-                        .build();
 
-        adapter = new ProjectItemAdapter(options);
+        recyclerView = root.findViewById(R.id.recyclerViewPageFragment1);
+
+        database = FirebaseDatabase.getInstance().getReference("createProjectTable");
+
+        recyclerView.setHasFixedSize(true);
+        recyclerView.setLayoutManager(new LinearLayoutManager(requireContext()));
+
+        adapter = new ProjectItemAdapter(requireContext(), projectItemModelsArr);
         recyclerView.setAdapter(adapter);
 
+        database.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                for(DataSnapshot dataSnapshot: snapshot.getChildren()){
+                    projectItemModelsArr.add(dataSnapshot.getValue(ProjectItemModel.class));
+                }
+                adapter.notifyDataSetChanged();
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
 
         return root;
-    }
-    @Override
-    public void onStart() {
-        super.onStart();
-        adapter.startListening();
-    }
-
-    @Override
-    public void onStop() {
-        super.onStop();
-        adapter.stopListening();
     }
 }

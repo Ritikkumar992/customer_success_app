@@ -12,45 +12,46 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.customer_support_app.Model.ProjectItemModel;
 import com.example.customer_support_app.R;
-import com.firebase.ui.database.FirebaseRecyclerAdapter;
-import com.firebase.ui.database.FirebaseRecyclerOptions;
+
 
 import java.util.ArrayList;
 
-public class ProjectItemAdapter extends FirebaseRecyclerAdapter<ProjectItemModel, ProjectItemAdapter.ViewHolder> {
+public class ProjectItemAdapter extends RecyclerView.Adapter<ProjectItemAdapter.ViewHolder> {
 
-    /**
-     * Initialize a {@link RecyclerView.Adapter} that listens to a Firebase query. See
-     * {@link FirebaseRecyclerOptions} for configuration options.
-     *
-     * @param options
-     */
-    public ProjectItemAdapter(@NonNull FirebaseRecyclerOptions<ProjectItemModel> options) {
-        super(options);
-    }
+    Context context;
+    ArrayList<ProjectItemModel> projectItemModelsArr;
 
-    @Override
-    protected void onBindViewHolder(@NonNull ViewHolder holder, final int position, @NonNull ProjectItemModel model) {
-        holder.ProjectName.setText(model.getProjectName());
-        holder.ProjectStatus.setText(model.getProjectStatus());
-        holder.ProjectStatus.setBackgroundColor(model.getProjectStatusColor());
-        holder.ProjectStartDate.setText(model.getProjectStartDate());
-        holder.projectManagerImg.setImageResource(model.getProjectMangerImg());
-        holder.ProjectManagerName.setText(model.getProjectManagerName());
-
+    public ProjectItemAdapter(Context context, ArrayList<ProjectItemModel> projectItemModelsArr) {
+        this.context = context;
+        this.projectItemModelsArr = projectItemModelsArr;
     }
 
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.project_data_row,parent,false);
+        View view = LayoutInflater.from(context).inflate(R.layout.project_data_row,parent,false);
         return new ViewHolder(view);
+    }
+
+    @Override
+    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+        holder.ProjectName.setText(projectItemModelsArr.get(position).projectName);
+        holder.ProjectStatus.setText(projectItemModelsArr.get(position).projectStatus);
+        holder.ProjectStatus.setBackgroundColor(projectItemModelsArr.get(position).projectStatusColor);
+        holder.ProjectStartDate.setText(projectItemModelsArr.get(position).projectStartDate);
+        holder.ProjectManagerImg.setImageResource(projectItemModelsArr.get(position).projectMangerImg);
+        holder.ProjectManagerName.setText(projectItemModelsArr.get(position).projectManagerName);
+    }
+
+    @Override
+    public int getItemCount() {
+        return projectItemModelsArr.size();
     }
 
     public class ViewHolder extends  RecyclerView.ViewHolder{
 
         TextView ProjectName, ProjectStatus,ProjectStartDate,ProjectManagerName;
-        ImageView projectManagerImg;
+        ImageView ProjectManagerImg;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -59,7 +60,7 @@ public class ProjectItemAdapter extends FirebaseRecyclerAdapter<ProjectItemModel
             ProjectStatus = itemView.findViewById(R.id.projectStatus);
             ProjectStartDate = itemView.findViewById(R.id.projectStartDate);
             ProjectManagerName = itemView.findViewById(R.id.projectManager);
-            projectManagerImg = itemView.findViewById(R.id.userIcon);
+            ProjectManagerImg = itemView.findViewById(R.id.userIcon);
 
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override

@@ -22,7 +22,11 @@ import android.widget.Toast;
 import com.example.customer_support_app.Activity.HomeActivity;
 import com.example.customer_support_app.R;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -76,7 +80,7 @@ public class CreateProjectDataFragment3 extends Fragment {
         map.put("projectName",projectName);
 
         map.put("projectStatus","In Progress");
-        map.put("projectStatusBg", "#" + Integer.toHexString(Color.parseColor("#6BE671")));
+        map.put("projectStatusBg", Integer.toHexString(Color.parseColor("#6BE671")));
         map.put("projectStartDate",currentDate);
 
         map.put("clientName",clientName);
@@ -85,6 +89,24 @@ public class CreateProjectDataFragment3 extends Fragment {
 
         map.put("projectManagerImg", R.drawable.ic_launcher_foreground);
         map.put("projectManagerName",projectManagerName);
+
+//        DatabaseReference connectedRef = FirebaseDatabase.getInstance().getReference(".info/connected");
+//        connectedRef.addValueEventListener(new ValueEventListener() {
+//            @Override
+//            public void onDataChange(DataSnapshot snapshot) {
+//                boolean connected = snapshot.getValue(Boolean.class);
+//                if (connected) {
+//                    System.out.println("connected");
+//                } else {
+//                    System.out.println("not connected");
+//                }
+//            }
+//
+//            @Override
+//            public void onCancelled(DatabaseError error) {
+//                System.err.println("Listener was cancelled");
+//            }
+//        });
 
         FirebaseDatabase.getInstance().getReference().child("createProjectTable")
                 .push().setValue(map)

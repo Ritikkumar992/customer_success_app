@@ -54,6 +54,8 @@ dependencies {
 
     // FirebaseUI for Firebase Realtime Database
     implementation ("com.firebaseui:firebase-ui-database:8.0.2")
+    // images
+    implementation ("com.github.bumptech.glide:glide:4.16.0")
 
 
 }
