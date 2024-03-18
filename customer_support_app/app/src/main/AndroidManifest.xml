@@ -14,25 +14,25 @@
         tools:targetApi="31">
         <activity
             android:name=".createProject.createProjectActivity"
-            android:parentActivityName=".HomeActivity"
+            android:parentActivityName=".Activity.HomeActivity"
             android:exported="false" />
         <activity
             android:name=".CreateProjectData.CreateProjectActivity"
             android:exported="false" />
         <activity
             android:name=".ProjectData.ProjectData"
-            android:parentActivityName=".HomeActivity"
+            android:parentActivityName=".Activity.HomeActivity"
             android:exported="false" />
         <activity
-            android:name=".HomeActivity"
+            android:name=".Activity.HomeActivity"
             android:exported="false"
             android:label="@string/title_activity_home"
             android:theme="@style/Theme.Customer_support_app.NoActionBar" />
         <activity
-            android:name=".LoginActivity"
+            android:name=".Activity.LoginActivity"
             android:exported="false" />
         <activity
-            android:name=".SplashActivity"
+            android:name=".Activity.SplashActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

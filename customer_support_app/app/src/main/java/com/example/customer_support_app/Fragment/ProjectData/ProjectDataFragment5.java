@@ -1,4 +1,4 @@
-package com.example.customer_support_app;
+package com.example.customer_support_app.Fragment.ProjectData;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -11,6 +11,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.example.customer_support_app.Activity.HomeActivity;
+import com.example.customer_support_app.R;
 
 public class ProjectDataFragment5 extends Fragment {
 

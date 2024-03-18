@@ -1,21 +1,23 @@
-package com.example.customer_support_app;
+package com.example.customer_support_app.Activity;
 
 import androidx.appcompat.app.AppCompatActivity;
+
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
-import android.view.View;
+import android.os.Handler;
 import android.view.WindowInsets;
 import android.view.WindowInsetsController;
 import android.view.WindowManager;
-import android.widget.TextView;
 
-public class LoginActivity extends AppCompatActivity {
-    TextView loginBtn;
+import com.example.customer_support_app.R;
+
+public class SplashActivity extends AppCompatActivity {
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_login);
+        setContentView(R.layout.activity_splash);
 
         // remove title bar
         if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.R){
@@ -28,14 +30,16 @@ public class LoginActivity extends AppCompatActivity {
             getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         }
 
-        // Navigating from LoginActivity to HomeActivity.
-        Intent iHome = new Intent(LoginActivity.this, HomeActivity.class);
-        loginBtn = findViewById(R.id.login_btn_id);
-        loginBtn.setOnClickListener(new View.OnClickListener() {
+
+        Intent iLogin = new Intent(SplashActivity.this, LoginActivity.class);
+
+        // call back function implementing Runnable() Interface.
+        new Handler().postDelayed(new Runnable() {
             @Override
-            public void onClick(View v) {
-                startActivity(iHome); // Navigate to Home Page.
+            public void run() {
+                startActivity(iLogin); // navigate to LoginActivity.
+                finish();
             }
-        });
+        }, 4000);
     }
 }

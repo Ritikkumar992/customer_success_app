@@ -1,12 +1,14 @@
-package com.example.customer_support_app;
-
-import android.content.Context;
+package com.example.customer_support_app.Adapter;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.lifecycle.Lifecycle;
 import androidx.viewpager2.adapter.FragmentStateAdapter;
+
+import com.example.customer_support_app.Fragment.CreateProjectData.CreateProjectDataFragment1;
+import com.example.customer_support_app.Fragment.CreateProjectData.CreateProjectDataFragment2;
+import com.example.customer_support_app.Fragment.CreateProjectData.CreateProjectDataFragment3;
 
 public class createProjectDataAdapter extends FragmentStateAdapter{
 

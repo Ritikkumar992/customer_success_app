@@ -1,4 +1,4 @@
-package com.example.customer_support_app;
+package com.example.customer_support_app.Fragment.PageFragment;
 
 import android.content.Intent;
 import android.graphics.Color;
@@ -17,6 +17,7 @@ import android.widget.Toast;
 import com.example.customer_support_app.Adapter.ProjectItemAdapter;
 import com.example.customer_support_app.Model.ProjectItemModel;
 import com.example.customer_support_app.ProjectData.ProjectData;
+import com.example.customer_support_app.R;
 
 import java.util.ArrayList;
 

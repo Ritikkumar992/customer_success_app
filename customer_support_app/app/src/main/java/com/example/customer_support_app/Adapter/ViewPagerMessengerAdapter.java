@@ -1,11 +1,16 @@
-package com.example.customer_support_app;
-import android.os.Bundle;
+package com.example.customer_support_app.Adapter;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.lifecycle.Lifecycle;
 import androidx.viewpager2.adapter.FragmentStateAdapter;
+
+import com.example.customer_support_app.Fragment.PageFragment.PageFragment1;
+import com.example.customer_support_app.Fragment.PageFragment.PageFragment2;
+import com.example.customer_support_app.Fragment.PageFragment.PageFragment3;
+import com.example.customer_support_app.Fragment.PageFragment.PageFragment4;
+
 
 public class ViewPagerMessengerAdapter extends FragmentStateAdapter {
 

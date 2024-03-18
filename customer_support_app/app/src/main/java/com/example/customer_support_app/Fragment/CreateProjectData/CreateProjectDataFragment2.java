@@ -1,4 +1,4 @@
-package com.example.customer_support_app;
+package com.example.customer_support_app.Fragment.CreateProjectData;
 
 import android.os.Bundle;
 
@@ -9,6 +9,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+
+import com.example.customer_support_app.R;
 
 public class CreateProjectDataFragment2 extends Fragment {
 
@@ -23,7 +25,7 @@ public class CreateProjectDataFragment2 extends Fragment {
         // Inflate the layout for this fragment
         View root =  inflater.inflate(R.layout.fragment_create_project_data2, container, false);
 
-        TextView continueBtn = root.findViewById(R.id.continueBtnInviteClient);
+        TextView continueBtn = root.findViewById(R.id.sendBtnInviteClient);
         continueBtn.setOnClickListener(v->{
             ViewPager2 viewPager = getActivity().findViewById(R.id.create_project_data_viewPager);
             viewPager.setCurrentItem(2, true);

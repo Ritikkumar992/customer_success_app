@@ -1,22 +1,18 @@
-package com.example.customer_support_app;
+package com.example.customer_support_app.Activity;
 
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.WindowInsets;
 import android.view.WindowInsetsController;
 import android.view.WindowManager;
-import android.widget.Toast;
 
+import com.example.customer_support_app.R;
 import com.example.customer_support_app.createProject.createProjectActivity;
-import com.example.customer_support_app.ui.project.ProjectsFragment;
-import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.navigation.NavigationView;
 
-import androidx.annotation.NonNull;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;

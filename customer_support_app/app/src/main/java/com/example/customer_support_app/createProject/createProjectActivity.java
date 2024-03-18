@@ -11,13 +11,11 @@ import android.view.MenuItem;
 import android.view.WindowInsets;
 import android.view.WindowInsetsController;
 import android.view.WindowManager;
-import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.customer_support_app.HomeActivity;
+import com.example.customer_support_app.Activity.HomeActivity;
 import com.example.customer_support_app.R;
-import com.example.customer_support_app.ViewProjectDataAdapter;
-import com.example.customer_support_app.createProjectDataAdapter;
+import com.example.customer_support_app.Adapter.createProjectDataAdapter;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.tabs.TabLayout;
 import com.google.android.material.tabs.TabLayoutMediator;

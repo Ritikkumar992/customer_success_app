@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:gravity="start"
     android:orientation="vertical"
-    tools:context=".PageFragment1"
+    tools:context=".Fragment.PageFragment.PageFragment1"
     android:background="@color/white"
     android:padding="10dp"
     >

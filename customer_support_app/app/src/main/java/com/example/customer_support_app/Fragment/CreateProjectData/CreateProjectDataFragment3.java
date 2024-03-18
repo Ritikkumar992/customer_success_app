@@ -1,4 +1,4 @@
-package com.example.customer_support_app;
+package com.example.customer_support_app.Fragment.CreateProjectData;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -13,6 +13,9 @@ import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.example.customer_support_app.Activity.HomeActivity;
+import com.example.customer_support_app.R;
 
 
 public class CreateProjectDataFragment3 extends Fragment {

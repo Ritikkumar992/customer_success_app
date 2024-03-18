@@ -13,7 +13,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical"
-            tools:context=".PageFragment1"
+            tools:context=".Fragment.PageFragment.PageFragment1"
             android:background="@color/white"
             android:padding="10dp"
             android:gravity="start"
@@ -94,10 +94,10 @@
                             android:gravity="center"
                             />
                         <TextView
-                            android:id="@+id/continueBtnInviteClient"
+                            android:id="@+id/sendBtnInviteClient"
                             android:layout_width="120dp"
                             android:layout_height="wrap_content"
-                            android:text="Continue"
+                            android:text="Send Invite"
                             android:textSize="18sp"
                             android:padding="10dp"
                             android:layout_marginTop="10dp"

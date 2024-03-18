@@ -1,4 +1,4 @@
-package com.example.customer_support_app;
+package com.example.customer_support_app.Fragment.ProjectData;
 
 import android.os.Bundle;
 import androidx.fragment.app.Fragment;
@@ -8,6 +8,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+
+import com.example.customer_support_app.R;
 
 
 public class ProjectDataFragment4 extends Fragment {

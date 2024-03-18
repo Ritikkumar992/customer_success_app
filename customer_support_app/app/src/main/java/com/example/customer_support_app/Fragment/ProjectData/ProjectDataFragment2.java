@@ -1,4 +1,4 @@
-package com.example.customer_support_app;
+package com.example.customer_support_app.Fragment.ProjectData;
 
 import android.os.Bundle;
 
@@ -11,6 +11,8 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 import android.widget.TextView;
+
+import com.example.customer_support_app.R;
 
 public class ProjectDataFragment2 extends Fragment {
     TextView continueBtn,backBtn;

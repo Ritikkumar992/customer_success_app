@@ -13,15 +13,12 @@ import android.view.WindowInsetsController;
 import android.view.WindowManager;
 import android.widget.Toast;
 
-import com.example.customer_support_app.HomeActivity;
+import com.example.customer_support_app.Activity.HomeActivity;
 import com.example.customer_support_app.R;
-import com.example.customer_support_app.ViewProjectDataAdapter;
-import com.example.customer_support_app.createProject.createProjectActivity;
+import com.example.customer_support_app.Adapter.ViewProjectDataAdapter;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.tabs.TabLayout;
 import com.google.android.material.tabs.TabLayoutMediator;
-
-import java.util.Objects;
 
 public class ProjectData extends AppCompatActivity {
     private final String[] titles = {"Project Overview", "Scope & Stack", "Escalation Matrix", "Version History", "Files"};
