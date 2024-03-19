@@ -97,18 +97,18 @@ public class PageFragment1 extends Fragment {
         database.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                for(DataSnapshot dataSnapshot: snapshot.getChildren()){
-                    projectItemModelsArr.add(dataSnapshot.getValue(ProjectItemModel.class));
+                projectItemModelsArr.clear(); // Clear the list before adding new items
+                for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
+                    ProjectItemModel projectItem = dataSnapshot.getValue(ProjectItemModel.class);
+                    projectItemModelsArr.add(0,projectItem);
                 }
                 adapter.notifyDataSetChanged();
             }
-
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
-
+                // Handle cancellation
             }
         });
-
         return root;
     }
 }

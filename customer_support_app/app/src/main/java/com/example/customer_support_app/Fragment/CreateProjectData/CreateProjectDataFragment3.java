@@ -7,6 +7,8 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentResultListener;
+import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.viewpager2.widget.ViewPager2;
 
 import android.util.Log;
@@ -20,6 +22,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.customer_support_app.Activity.HomeActivity;
+import com.example.customer_support_app.Model.CreateProjectViewModel;
 import com.example.customer_support_app.R;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.database.DataSnapshot;
@@ -45,6 +48,14 @@ public class CreateProjectDataFragment3 extends Fragment {
     CreateProjectDataFragment1 createProjectDataFragment1;
     String projectManagerName, projectName, clientName, clientEmail;
 
+    private CreateProjectViewModel viewModel;
+
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        viewModel = new ViewModelProvider(requireActivity()).get(CreateProjectViewModel.class);
+    }
+
 
     public CreateProjectDataFragment3() {}
 
@@ -57,6 +68,27 @@ public class CreateProjectDataFragment3 extends Fragment {
         submitBtn = root.findViewById(R.id.submitBtn);
         backBtn = root.findViewById(R.id.backBtn);
 
+        // Observe  LiveData
+
+        viewModel.getProjectNameLiveData().observe(getViewLifecycleOwner(), new Observer<String>() {
+            @Override
+            public void onChanged(String s) {
+                projectName = s;
+            }
+        });
+
+        viewModel.getClientNameLiveData().observe(getViewLifecycleOwner(), new Observer<String>() {
+            @Override
+            public void onChanged(String name) {
+                clientName = name;
+            }
+        });
+        viewModel.getClientEmailLiveData().observe(getViewLifecycleOwner(), new Observer<String>() {
+            @Override
+            public void onChanged(String email) {
+                clientEmail = email;
+            }
+        });
 
 
         submitBtn.setOnClickListener(v -> {
@@ -77,36 +109,17 @@ public class CreateProjectDataFragment3 extends Fragment {
     {
         Map<String, Object> map = new HashMap<>();
 
-        map.put("projectName",projectName);
-
+        map.put("projectName", projectName);
         map.put("projectStatus","In Progress");
-        map.put("projectStatusBg", Integer.toHexString(Color.parseColor("#6BE671")));
-        map.put("projectStartDate",currentDate);
 
+        map.put("projectStatusBg", "#6BE671");
+
+        map.put("projectStartDate","Start Date: "+currentDate);
         map.put("clientName",clientName);
         map.put("clientEmail",clientEmail);
+        map.put("projectManagerImg", R.drawable.profile_logo3);
+        map.put("projectManagerName","Created by: " + projectManagerName);
 
-
-        map.put("projectManagerImg", R.drawable.ic_launcher_foreground);
-        map.put("projectManagerName",projectManagerName);
-
-//        DatabaseReference connectedRef = FirebaseDatabase.getInstance().getReference(".info/connected");
-//        connectedRef.addValueEventListener(new ValueEventListener() {
-//            @Override
-//            public void onDataChange(DataSnapshot snapshot) {
-//                boolean connected = snapshot.getValue(Boolean.class);
-//                if (connected) {
-//                    System.out.println("connected");
-//                } else {
-//                    System.out.println("not connected");
-//                }
-//            }
-//
-//            @Override
-//            public void onCancelled(DatabaseError error) {
-//                System.err.println("Listener was cancelled");
-//            }
-//        });
 
         FirebaseDatabase.getInstance().getReference().child("createProjectTable")
                 .push().setValue(map)
@@ -124,7 +137,7 @@ public class CreateProjectDataFragment3 extends Fragment {
 
     private void setSpinner()
     {
-        String[] items = {"Dipa Majumdar", "Chintak Patel", "Anand Patel","Ritik kumar"};
+        String[] items = {"Dipa Majumdar", "Chintak Patel", "Anand Patel","Ritik kumar", "Rohan Manna"};
         ArrayAdapter<String> adapter = new ArrayAdapter<>(requireContext(), android.R.layout.simple_spinner_item, items);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 

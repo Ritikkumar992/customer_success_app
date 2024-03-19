@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -18,13 +19,21 @@ import com.example.customer_support_app.Adapter.ProjectItemAdapter;
 import com.example.customer_support_app.Model.ProjectItemModel;
 import com.example.customer_support_app.ProjectData.ProjectData;
 import com.example.customer_support_app.R;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
 public class PageFragment2 extends Fragment {
 
     RecyclerView recyclerView;
-    ArrayList<ProjectItemModel> projectItemArr = new ArrayList<>();
+    ProjectItemAdapter adapter;
+    ArrayList<ProjectItemModel> projectItemModelsArr = new ArrayList<>();
+
+    DatabaseReference database;
 
     public PageFragment2() {}
 
@@ -59,6 +68,44 @@ public class PageFragment2 extends Fragment {
 //            }
 //        });
 //        recyclerView.setAdapter(adapter);
+
+        recyclerView = root.findViewById(R.id.recyclerViewPageFragment2);
+
+        database = FirebaseDatabase.getInstance().getReference("createProjectTable");
+
+        recyclerView.setHasFixedSize(true);
+        recyclerView.setLayoutManager(new LinearLayoutManager(requireContext()));
+
+        adapter = new ProjectItemAdapter(requireContext(), projectItemModelsArr);
+
+        adapter.setOnItemClickListener(new ProjectItemAdapter.OnItemClickListener() {
+            @Override
+            public void onItemClick(int position) {
+                Toast.makeText(requireContext(), "Projeect Item clicked", Toast.LENGTH_SHORT).show();
+                Intent iProjectData = new Intent(requireContext(), ProjectData.class);
+                startActivity(iProjectData);
+            }
+        });
+
+        recyclerView.setAdapter(adapter);
+
+        database.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                projectItemModelsArr.clear(); // Clear the list before adding new items
+                for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
+                    ProjectItemModel projectItem = dataSnapshot.getValue(ProjectItemModel.class);
+                    projectItemModelsArr.add(projectItem);
+                }
+                adapter.notifyDataSetChanged();
+            }
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                // Handle cancellation
+            }
+        });
+
+
         return root;
     }
 }
