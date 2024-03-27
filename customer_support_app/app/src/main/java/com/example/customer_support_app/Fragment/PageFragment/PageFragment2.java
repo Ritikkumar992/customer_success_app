@@ -95,7 +95,7 @@ public class PageFragment2 extends Fragment {
                 projectItemModelsArr.clear(); // Clear the list before adding new items
                 for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
                     ProjectItemModel projectItem = dataSnapshot.getValue(ProjectItemModel.class);
-                    projectItemModelsArr.add(projectItem);
+                    projectItemModelsArr.add(0,projectItem);
                 }
                 adapter.notifyDataSetChanged();
             }

@@ -92,6 +92,16 @@ public class PageFragment1 extends Fragment {
         recyclerView.setLayoutManager(new LinearLayoutManager(requireContext()));
 
         adapter = new ProjectItemAdapter(requireContext(), projectItemModelsArr);
+
+        adapter.setOnItemClickListener(new ProjectItemAdapter.OnItemClickListener() {
+            @Override
+            public void onItemClick(int position) {
+                Toast.makeText(requireContext(), "Project Item clicked", Toast.LENGTH_SHORT).show();
+                Intent iProjectData = new Intent(requireContext(), ProjectData.class);
+                startActivity(iProjectData);
+            }
+        });
+
         recyclerView.setAdapter(adapter);
 
         database.addValueEventListener(new ValueEventListener() {
