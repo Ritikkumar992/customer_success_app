@@ -8,16 +8,23 @@ import android.view.View;
 import android.view.WindowInsets;
 import android.view.WindowInsetsController;
 import android.view.WindowManager;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.customer_support_app.R;
 
 public class LoginActivity extends AppCompatActivity {
     TextView loginBtn;
+    Spinner spinner;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+
+
 
         // remove title bar
         if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.R){
@@ -29,6 +36,23 @@ public class LoginActivity extends AppCompatActivity {
         else{
             getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         }
+
+        spinner = findViewById(R.id.spinnerId_login);
+        String[] items = {"Admin","Manager", "Auditor","Client"};
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(LoginActivity.this, android.R.layout.simple_spinner_item, items);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+//        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+//            @Override
+//            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+//                projectManagerName = parent.getItemAtPosition(position).toString();
+//            }
+//            @Override
+//            public void onNothingSelected(AdapterView<?> parent) {
+//                Toast.makeText(LoginActivity.this, "Please Select an item", Toast.LENGTH_SHORT).show();
+//            }
+//        });
+        spinner.setAdapter(adapter);
+
 
         // Navigating from LoginActivity to HomeActivity.
         Intent iHome = new Intent(LoginActivity.this, HomeActivity.class);

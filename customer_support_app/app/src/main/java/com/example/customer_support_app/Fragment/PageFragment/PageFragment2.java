@@ -38,8 +38,8 @@ public class PageFragment2 extends Fragment {
         recyclerView.setLayoutManager(new LinearLayoutManager(requireContext()));
 
         //================================= Fetching data from API =========================//
-//        projectItemArr.add(new ProjectItemModel("Dump Project", "In Progess", Color.parseColor("#6BE671"),
-//                "Started on: 15th March 2024","Created By: Ritik kumar", R.drawable.user_logo,R.drawable.baseline_arrow_forward_ios_24));
+        projectItemArr.add(new ProjectItemModel("Dump Project", "In Progess",
+                "Started on: 15th March 2024","Created By: Ritik kumar", R.drawable.user_logo,R.drawable.baseline_arrow_forward_ios_24));
 //        projectItemArr.add(new ProjectItemModel("Dump Project", "In Progess", Color.parseColor("#6BE671"),
 //                "Started on: 15th March 2024","Created By: Ritik kumar", R.drawable.user_logo,R.drawable.baseline_arrow_forward_ios_24));
 //        projectItemArr.add(new ProjectItemModel("Dump Project", "In Progess",Color.parseColor("#6BE671"),
@@ -49,16 +49,16 @@ public class PageFragment2 extends Fragment {
 
 
 
-//        ProjectItemAdapter adapter = new ProjectItemAdapter(requireContext(), projectItemArr);
-//        adapter.setOnItemClickListener(new ProjectItemAdapter.OnItemClickListener() {
-//            @Override
-//            public void onItemClick(int position) {
-//                Toast.makeText(requireContext(), "Projeect Item clicked", Toast.LENGTH_SHORT).show();
-//                Intent iProjectData = new Intent(requireContext(), ProjectData.class);
-//                startActivity(iProjectData);
-//            }
-//        });
-//        recyclerView.setAdapter(adapter);
+        ProjectItemAdapter adapter = new ProjectItemAdapter(requireContext(), projectItemArr);
+        adapter.setOnItemClickListener(new ProjectItemAdapter.OnItemClickListener() {
+            @Override
+            public void onItemClick(int position) {
+                Toast.makeText(requireContext(), "Projeect Item clicked", Toast.LENGTH_SHORT).show();
+                Intent iProjectData = new Intent(requireContext(), ProjectData.class);
+                startActivity(iProjectData);
+            }
+        });
+        recyclerView.setAdapter(adapter);
         return root;
     }
 }

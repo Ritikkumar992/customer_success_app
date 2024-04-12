@@ -15,13 +15,14 @@ import com.example.customer_support_app.R;
 
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class ProjectItemAdapter extends RecyclerView.Adapter<ProjectItemAdapter.ViewHolder> {
 
     Context context;
-    ArrayList<ProjectItemModel> projectItemModelsArr;
+    List<ProjectItemModel> projectItemModelsArr;
 
-    public ProjectItemAdapter(Context context, ArrayList<ProjectItemModel> projectItemModelsArr) {
+    public ProjectItemAdapter(Context context, List<ProjectItemModel> projectItemModelsArr) {
         this.context = context;
         this.projectItemModelsArr = projectItemModelsArr;
     }
