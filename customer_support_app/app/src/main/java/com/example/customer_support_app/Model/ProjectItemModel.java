@@ -1,16 +1,18 @@
 package com.example.customer_support_app.Model;
 
+import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 
 public class ProjectItemModel {
     public String  projectName,projectStatus,projectStartDate,projectManagerName;
-    public int  projectMangerImg,projectStatusColor;
+    public int  projectMangerImg;
+    public String projectStatusColor;
 
     ProjectItemModel(){
         // for firebase
     }
 
-    public ProjectItemModel(String projectName, String projectStatus, String projectStartDate, String projectManagerName, int projectMangerImg, int projectStatusColor) {
+    public ProjectItemModel(String projectName, String projectStatus, String projectStartDate, String projectManagerName, int projectMangerImg, String projectStatusColor) {
         this.projectName = projectName;
         this.projectStatus = projectStatus;
         this.projectStartDate = projectStartDate;
@@ -59,11 +61,11 @@ public class ProjectItemModel {
         this.projectMangerImg = projectMangerImg;
     }
 
-    public int getProjectStatusColor() {
+    public String getProjectStatusColor() {
         return projectStatusColor;
     }
 
-    public void setProjectStatusColor(int projectStatusColor) {
+    public void setProjectStatusColor(String projectStatusColor) {
         this.projectStatusColor = projectStatusColor;
     }
 }

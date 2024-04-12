@@ -7,6 +7,10 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentResultListener;
+<<<<<<< HEAD
+=======
+import androidx.lifecycle.Observer;
+>>>>>>> 25e473b50d679d3fc60d26e2bfa002a80216cb0f
 import androidx.lifecycle.ViewModelProvider;
 import androidx.viewpager2.widget.ViewPager2;
 
@@ -22,11 +26,15 @@ import android.widget.Toast;
 import androidx.lifecycle.Observer;
 
 import com.example.customer_support_app.Activity.HomeActivity;
+<<<<<<< HEAD
 import com.example.customer_support_app.EndPoints.Api;
 import com.example.customer_support_app.Model.CreateProjectModel;
 import com.example.customer_support_app.Model.CreateProjectViewModel;
 import com.example.customer_support_app.Model.ManagerListModel;
 import com.example.customer_support_app.Network.RetrofitClient;
+=======
+import com.example.customer_support_app.Model.CreateProjectViewModel;
+>>>>>>> 25e473b50d679d3fc60d26e2bfa002a80216cb0f
 import com.example.customer_support_app.R;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.database.DataSnapshot;
@@ -56,8 +64,20 @@ public class CreateProjectDataFragment3 extends Fragment {
     TextView submitBtn, backBtn;
     CreateProjectDataFragment1 createProjectDataFragment1;
     String projectManagerName, projectName, clientName, clientEmail;
+<<<<<<< HEAD
     int projectManagerUserId;
     private CreateProjectViewModel viewModel;
+=======
+
+    private CreateProjectViewModel viewModel;
+
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        viewModel = new ViewModelProvider(requireActivity()).get(CreateProjectViewModel.class);
+    }
+
+>>>>>>> 25e473b50d679d3fc60d26e2bfa002a80216cb0f
 
     public CreateProjectDataFragment3() {}
 
@@ -76,6 +96,27 @@ public class CreateProjectDataFragment3 extends Fragment {
         submitBtn = root.findViewById(R.id.submitBtn);
         backBtn = root.findViewById(R.id.backBtn);
 
+        // Observe  LiveData
+
+        viewModel.getProjectNameLiveData().observe(getViewLifecycleOwner(), new Observer<String>() {
+            @Override
+            public void onChanged(String s) {
+                projectName = s;
+            }
+        });
+
+        viewModel.getClientNameLiveData().observe(getViewLifecycleOwner(), new Observer<String>() {
+            @Override
+            public void onChanged(String name) {
+                clientName = name;
+            }
+        });
+        viewModel.getClientEmailLiveData().observe(getViewLifecycleOwner(), new Observer<String>() {
+            @Override
+            public void onChanged(String email) {
+                clientEmail = email;
+            }
+        });
 
         // Observe  LiveData
 
@@ -114,6 +155,7 @@ public class CreateProjectDataFragment3 extends Fragment {
     }
     private void insertData()
     {
+<<<<<<< HEAD
         CreateProjectModel project = new CreateProjectModel();
         project.set_id(String.valueOf(Math.random()));
         project.setName(projectName);
@@ -140,6 +182,34 @@ public class CreateProjectDataFragment3 extends Fragment {
                 Log.e("FAIL:",t.getMessage());
             }
         });
+=======
+        Map<String, Object> map = new HashMap<>();
+
+        map.put("projectName", projectName);
+        map.put("projectStatus","In Progress");
+
+        map.put("projectStatusBg", "#6BE671");
+
+        map.put("projectStartDate","Start Date: "+currentDate);
+        map.put("clientName",clientName);
+        map.put("clientEmail",clientEmail);
+        map.put("projectManagerImg", R.drawable.profile_logo3);
+        map.put("projectManagerName","Created by: " + projectManagerName);
+
+
+        FirebaseDatabase.getInstance().getReference().child("createProjectTable")
+                .push().setValue(map)
+                .addOnSuccessListener(new OnSuccessListener<Void>() {
+                    @Override
+                    public void onSuccess(Void unused) {
+                        Toast.makeText(requireContext(),"Data Inserted Successfully ", Toast.LENGTH_SHORT).show();
+                    }
+                })
+                .addOnFailureListener(e -> {
+                    Log.e("ERROR", e.toString());
+                    Toast.makeText(requireContext(),"Data Inserted Failed ", Toast.LENGTH_SHORT).show();
+                });
+>>>>>>> 25e473b50d679d3fc60d26e2bfa002a80216cb0f
     }
 
 
@@ -149,12 +219,20 @@ public class CreateProjectDataFragment3 extends Fragment {
 
     private void setSpinner()
     {
+<<<<<<< HEAD
         // create handler for retrofit handle instance
         Call<List<ManagerListModel>> call = new RetrofitClient()
                 .getRetrofitInstance()
                 .create(Api.class)
                 .getManagers();
         call.enqueue(new Callback<List<ManagerListModel>>() {
+=======
+        String[] items = {"Dipa Majumdar", "Chintak Patel", "Anand Patel","Ritik kumar", "Rohan Manna"};
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(requireContext(), android.R.layout.simple_spinner_item, items);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+
+        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+>>>>>>> 25e473b50d679d3fc60d26e2bfa002a80216cb0f
             @Override
             public void onResponse(Call<List<ManagerListModel>> call, Response<List<ManagerListModel>> response) {
                 String[] managerNames = new String[response.body().size()];

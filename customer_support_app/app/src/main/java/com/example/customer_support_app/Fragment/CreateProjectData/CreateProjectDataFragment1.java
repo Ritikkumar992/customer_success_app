@@ -7,8 +7,11 @@ import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.viewpager2.widget.ViewPager2;
 
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -17,6 +20,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.customer_support_app.Model.CreateProjectViewModel;
 import com.example.customer_support_app.R;
 
 
@@ -25,7 +29,13 @@ public class CreateProjectDataFragment1 extends Fragment {
     TextView continueBtn;
     EditText projectNameView;
 
-    private String projectName;
+    private CreateProjectViewModel viewModel;
+
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        viewModel = new ViewModelProvider(requireActivity()).get(CreateProjectViewModel.class);
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -36,26 +46,30 @@ public class CreateProjectDataFragment1 extends Fragment {
         continueBtn = root.findViewById(R.id.continueBtnProjectName);
         projectNameView = root.findViewById(R.id.projectNameId);
 
+        projectNameView.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+            @Override
+            public void afterTextChanged(Editable name) {
+                viewModel.setProjectName(name.toString());
+            }
+        });
+
         continueBtn.setOnClickListener(v->{
-            projectName = projectNameView.getText().toString();
-            clearAll();
             navigateNext();
         });
         return root;
     }
-    private void clearAll()
-    {
-        projectNameView.setText("");
-    }
     private void navigateNext()
     {
-        Toast.makeText(requireContext(), projectName,Toast.LENGTH_SHORT).show();
         ViewPager2 viewPager = getActivity().findViewById(R.id.create_project_data_viewPager);
         viewPager.setCurrentItem(1, true);
-    }
-
-    public String getProjectName(){
-        return projectName;
     }
 
 }

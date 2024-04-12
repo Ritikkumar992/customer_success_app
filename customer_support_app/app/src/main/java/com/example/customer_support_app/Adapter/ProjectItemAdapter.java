@@ -1,11 +1,13 @@
 package com.example.customer_support_app.Adapter;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -38,9 +40,10 @@ public class ProjectItemAdapter extends RecyclerView.Adapter<ProjectItemAdapter.
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         holder.ProjectName.setText(projectItemModelsArr.get(position).projectName);
         holder.ProjectStatus.setText(projectItemModelsArr.get(position).projectStatus);
-        holder.ProjectStatus.setBackgroundColor(projectItemModelsArr.get(position).projectStatusColor);
+        holder.ProjectStatus.setBackgroundColor(Color.GRAY);
+
         holder.ProjectStartDate.setText(projectItemModelsArr.get(position).projectStartDate);
-        holder.ProjectManagerImg.setImageResource(projectItemModelsArr.get(position).projectMangerImg);
+        holder.ProjectManagerImg.setImageResource(R.drawable.profile_logo3);
         holder.ProjectManagerName.setText(projectItemModelsArr.get(position).projectManagerName);
     }
 
@@ -62,6 +65,7 @@ public class ProjectItemAdapter extends RecyclerView.Adapter<ProjectItemAdapter.
             ProjectStartDate = itemView.findViewById(R.id.projectStartDate);
             ProjectManagerName = itemView.findViewById(R.id.projectManager);
             ProjectManagerImg = itemView.findViewById(R.id.userIcon);
+
 
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override

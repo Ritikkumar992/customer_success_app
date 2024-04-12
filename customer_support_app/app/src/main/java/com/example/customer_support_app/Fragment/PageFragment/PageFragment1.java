@@ -57,13 +57,82 @@ public class PageFragment1 extends Fragment {
                     adapter = new ProjectItemAdapter(requireContext(), projectDataList);
                     recyclerView.setAdapter(adapter);
 
+<<<<<<< HEAD
                 } else {
                     Log.e("ERROR", response.message());
+=======
+//        projectItemArr.add(new ProjectItemModel("Sample Project", "Completed", Color.parseColor("#F17175"),
+//                "Started on: 14th March 2024","Created By: Ritik kumar",
+//                R.drawable.user_logo,R.drawable.baseline_arrow_forward_ios_24));
+//
+//        projectItemArr.add(new ProjectItemModel("Sample Project", "In Progress",Color.parseColor("#6BE671"),
+//                "Started on: 14th March 2024","Created By: Ritik kumar",
+//                R.drawable.user_logo,R.drawable.baseline_arrow_forward_ios_24));
+//
+//        projectItemArr.add(new ProjectItemModel("Sample Project", "Hold",Color.parseColor("#979797"),
+//                "Started on: 14th March 2024","Created By: Ritik kumar",
+//                R.drawable.user_logo,R.drawable.baseline_arrow_forward_ios_24));
+//
+//        projectItemArr.add(new ProjectItemModel("Sample Project", "In Progress",Color.parseColor("#6BE671"),
+//                "Started on: 14th March 2024","Created By: Ritik kumar",
+//                R.drawable.user_logo,R.drawable.baseline_arrow_forward_ios_24));
+//        projectItemArr.add(new ProjectItemModel("Sample Project", "Completed", Color.parseColor("#F17175"),
+//                "Started on: 14th March 2024","Created By: Ritik kumar",
+//                R.drawable.user_logo,R.drawable.baseline_arrow_forward_ios_24));
+//
+//        projectItemArr.add(new ProjectItemModel("Sample Project", "In Progress",Color.parseColor("#6BE671"),
+//                "Started on: 14th March 2024","Created By: Ritik kumar",
+//                R.drawable.user_logo,R.drawable.baseline_arrow_forward_ios_24));
+//
+//        projectItemArr.add(new ProjectItemModel("Sample Project", "Hold",Color.parseColor("#979797"),
+//                "Started on: 14th March 2024","Created By: Ritik kumar",
+//                R.drawable.user_logo,R.drawable.baseline_arrow_forward_ios_24));
+//
+//        projectItemArr.add(new ProjectItemModel("Sample Project", "In Progress",Color.parseColor("#6BE671"),
+//                "Started on: 14th March 2024","Created By: Ritik kumar",
+//                R.drawable.user_logo,R.drawable.baseline_arrow_forward_ios_24));
+
+
+        //======================================== Read Operation :  Fetching Data from Firebase ======================//
+
+        recyclerView = root.findViewById(R.id.recyclerViewPageFragment1);
+
+        database = FirebaseDatabase.getInstance().getReference("createProjectTable");
+
+        recyclerView.setHasFixedSize(true);
+        recyclerView.setLayoutManager(new LinearLayoutManager(requireContext()));
+
+        adapter = new ProjectItemAdapter(requireContext(), projectItemModelsArr);
+
+        adapter.setOnItemClickListener(new ProjectItemAdapter.OnItemClickListener() {
+            @Override
+            public void onItemClick(int position) {
+                Toast.makeText(requireContext(), "Project Item clicked", Toast.LENGTH_SHORT).show();
+                Intent iProjectData = new Intent(requireContext(), ProjectData.class);
+                startActivity(iProjectData);
+            }
+        });
+
+        recyclerView.setAdapter(adapter);
+
+        database.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                projectItemModelsArr.clear(); // Clear the list before adding new items
+                for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
+                    ProjectItemModel projectItem = dataSnapshot.getValue(ProjectItemModel.class);
+                    projectItemModelsArr.add(0,projectItem);
+>>>>>>> 25e473b50d679d3fc60d26e2bfa002a80216cb0f
                 }
             }
             @Override
+<<<<<<< HEAD
             public void onFailure(Call<List<ProjectItemModel>> call, Throwable t) {
                 Log.e("ERROR",t.getMessage());
+=======
+            public void onCancelled(@NonNull DatabaseError error) {
+                // Handle cancellation
+>>>>>>> 25e473b50d679d3fc60d26e2bfa002a80216cb0f
             }
         });
         return root;

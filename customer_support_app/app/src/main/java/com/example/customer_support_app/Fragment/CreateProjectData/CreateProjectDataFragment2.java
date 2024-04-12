@@ -4,8 +4,11 @@ import android.graphics.Color;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.viewpager2.widget.ViewPager2;
 
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,6 +18,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.customer_support_app.Firebase.FirebaseResourse;
+import com.example.customer_support_app.Model.CreateProjectViewModel;
 import com.example.customer_support_app.R;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.database.FirebaseDatabase;
@@ -26,9 +30,15 @@ public class CreateProjectDataFragment2 extends Fragment {
 
     EditText clientNameView, clientEmailView;
     TextView addClient,backBtn, continueBtn;
-    String clientName, clientEmail;
+    private CreateProjectViewModel viewModel;
     public CreateProjectDataFragment2() {
         // Required empty public constructor
+    }
+
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        viewModel = new ViewModelProvider(requireActivity()).get(CreateProjectViewModel.class);
     }
 
     @Override
@@ -37,20 +47,46 @@ public class CreateProjectDataFragment2 extends Fragment {
         // Inflate the layout for this fragment
         View root =  inflater.inflate(R.layout.fragment_create_project_data2, container, false);
 
+
         clientNameView = root.findViewById(R.id.clientNameId);
         clientEmailView = root.findViewById(R.id.clientEmailId);
         addClient = root.findViewById(R.id.addClient);
         continueBtn = root.findViewById(R.id.sendBtnInviteClient);
         backBtn = root.findViewById(R.id.backBtnInviteClient);
 
-        addClient.setOnClickListener(v->{
-            clientName = clientNameView.getText().toString();
-            clientEmail = clientEmailView.getText().toString();
 
-            clearAll();
-            navigateNext();
+        clientNameView.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+            @Override
+            public void afterTextChanged(Editable s) {
+                viewModel.setClientName(s.toString()); // Update client name in ViewModel
+            }
+        });
+        clientEmailView.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+            @Override
+            public void afterTextChanged(Editable s) {
+                viewModel.setClientEmail(s.toString());
+            }
         });
 
+        addClient.setOnClickListener(v->{
+            navigateNext();
+        });
         continueBtn.setOnClickListener(v->{
             navigateNext();
         });
@@ -62,7 +98,6 @@ public class CreateProjectDataFragment2 extends Fragment {
 
         return root;
     }
-
     private void clearAll()
     {
         clientNameView.setText("");

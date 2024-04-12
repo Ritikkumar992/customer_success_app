@@ -44,9 +44,9 @@
                         android:layout_width="100dp"
                         android:layout_height="30dp"
                         android:text="In Progress"
+                        android:textColor="@color/white"
                         android:gravity="center"
                         android:textSize="12sp"
-                        android:textColor="@color/red"
                         android:padding="2dp"
                         android:layout_marginTop="5dp"
                         />
@@ -69,7 +69,7 @@
                         android:layout_width="30dp"
                         android:layout_height="30dp"
                         android:contentDescription="Contact Image"
-                        android:src="@drawable/user_logo"
+                        android:src="@drawable/profile_logo"
                         />
                     <TextView
                         android:id="@+id/projectManager"
